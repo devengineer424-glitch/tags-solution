@@ -38,3 +38,4 @@ Optional env var: `NEXT_PUBLIC_API_BASE_URL` (defaults to `https://tagsb.vercel.
 Services, industries, engagement models, and site config are static data in
 `data/`. Blogs and success stories load from the live API and fall back to
 bundled data when the API is unavailable.
+
