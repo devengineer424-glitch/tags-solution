@@ -3,12 +3,14 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CtaBand from "@/components/CtaBand";
 import { getCaseStudies } from "@/lib/api";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = pageMeta({
   title: "Success Stories",
   description:
     "Real problems, measurable outcomes. See how we've helped companies ship faster, scale further, and grow.",
-};
+  path: "/success-stories",
+});
 
 export default async function CaseStudiesPage() {
   const items = await getCaseStudies();

@@ -3,12 +3,14 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CtaBand from "@/components/CtaBand";
 import { industries } from "@/data/industries";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = pageMeta({
   title: "Industries",
   description:
     "TAG Solutions builds technology that understands your industry's realities — its constraints, its compliance needs, and its opportunities.",
-};
+  path: "/industries",
+});
 
 export default function IndustriesPage() {
   return (

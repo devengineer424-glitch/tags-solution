@@ -4,8 +4,14 @@ import Footer from "@/components/Footer";
 import CtaBand from "@/components/CtaBand";
 import { stats } from "@/data/site";
 import { benefits, jobOpenings } from "@/data/careers";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata = { title: "Careers" };
+export const metadata = pageMeta({
+  title: "Careers",
+  description:
+    "Join TAG Solutions. Build meaningful technology with a team that values engineering excellence, ownership, and growth. See our open roles.",
+  path: "/careers",
+});
 
 export default function Page() {
   return (

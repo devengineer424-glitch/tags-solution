@@ -5,7 +5,9 @@ import Footer from "@/components/Footer";
 import CtaBand from "@/components/CtaBand";
 import Markdown from "@/components/Markdown";
 import CaseStudySections from "@/components/CaseStudySections";
+import JsonLd from "@/components/JsonLd";
 import { getCaseStudy, caseStudyFallbackSlugs } from "@/lib/api";
+import { pageMeta, caseStudySchema, breadcrumbSchema } from "@/lib/seo";
 
 export const dynamicParams = true;
 
@@ -15,15 +17,33 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const c = await getCaseStudy(params.slug);
-  return { title: c ? c.title : "Success Story" };
+  if (!c) return pageMeta({ title: "Success Story", path: `/success-stories/${params.slug}`, noindex: true });
+  return pageMeta({
+    title: c.title,
+    description: c.excerpt,
+    path: `/success-stories/${c.slug}`,
+    image: c.image,
+    type: "article",
+  });
 }
 
 export default async function CaseStudyDetailPage({ params }) {
   const cs = await getCaseStudy(params.slug);
   if (!cs) notFound();
 
+  const path = `/success-stories/${cs.slug}`;
+  const jsonLd = [
+    caseStudySchema({ title: cs.title, description: cs.excerpt, image: cs.image, path }),
+    breadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Success Stories", path: "/success-stories" },
+      { name: cs.title, path },
+    ]),
+  ];
+
   return (
     <div className="mil-wrapper">
+      <JsonLd data={jsonLd} />
       <Header transparent />
 
       {/* hero */}

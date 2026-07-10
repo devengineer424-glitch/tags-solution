@@ -3,8 +3,14 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CtaBand from "@/components/CtaBand";
 import { aboutStats } from "@/data/site";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata = { title: "About Us" };
+export const metadata = pageMeta({
+  title: "About Us",
+  description:
+    "We're a team of engineers, designers, and strategists building end-to-end technology for global leaders — value over delivery, transparency over bureaucracy.",
+  path: "/about",
+});
 
 const values = [
   {

@@ -3,7 +3,9 @@ import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CtaBand from "@/components/CtaBand";
+import JsonLd from "@/components/JsonLd";
 import { services, getService } from "@/data/services";
+import { pageMeta, serviceSchema, breadcrumbSchema } from "@/lib/seo";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -11,7 +13,13 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }) {
   const s = getService(params.slug);
-  return { title: s ? s.title : "Service" };
+  if (!s) return pageMeta({ title: "Service", path: `/services/${params.slug}`, noindex: true });
+  return pageMeta({
+    title: s.title,
+    description: s.heroDescription || s.description,
+    path: `/services/${s.slug}`,
+    image: s.image,
+  });
 }
 
 const numBadge = {
@@ -44,8 +52,19 @@ export default function ServiceDetailPage({ params }) {
 
   const otherServices = services.filter((s) => s.slug !== params.slug).slice(0, 3);
 
+  const path = `/services/${service.slug}`;
+  const jsonLd = [
+    serviceSchema(service, path),
+    breadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Services", path: "/services" },
+      { name: service.shortTitle || service.title, path },
+    ]),
+  ];
+
   return (
     <div className="mil-wrapper">
+      <JsonLd data={jsonLd} />
       <Header transparent />
 
       {/* hero */}

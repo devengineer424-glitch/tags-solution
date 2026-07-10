@@ -1,4 +1,12 @@
 import Link from "next/link";
+import { pageMeta } from "@/lib/seo";
+
+export const metadata = pageMeta({
+  title: "Coming Soon",
+  description: "This page is coming soon.",
+  path: "/coming-soon",
+  noindex: true,
+});
 
 export default function ComingSoonPage() {
   return (

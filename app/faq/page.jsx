@@ -2,12 +2,20 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CtaBand from "@/components/CtaBand";
 import { faqs } from "@/data/site";
+import { pageMeta, faqSchema } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 
-export const metadata = { title: "Frequently Asked Questions" };
+export const metadata = pageMeta({
+  title: "Frequently Asked Questions",
+  description:
+    "Answers to common questions about working with TAG Solutions — engagement models, pricing, quality, security, NDAs, IP ownership, and support.",
+  path: "/faq",
+});
 
 export default function Page() {
   return (
     <div className="mil-wrapper">
+      <JsonLd data={faqSchema(faqs)} />
       <Header transparent />
 
       {/* banner */}

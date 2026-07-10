@@ -1,5 +1,13 @@
 import Link from "next/link";
 import Header from "@/components/Header";
+import { pageMeta } from "@/lib/seo";
+
+export const metadata = pageMeta({
+  title: "Page Not Found",
+  description: "The page you're looking for doesn't exist.",
+  path: "/404",
+  noindex: true,
+});
 
 export default function NotFoundPage() {
   return (

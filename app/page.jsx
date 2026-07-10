@@ -9,6 +9,15 @@ import { industries } from "@/data/industries";
 import { testimonials } from "@/data/testimonials";
 import { getCaseStudies, getBlogs } from "@/lib/api";
 import { models as engagementModels } from "@/data/engagement";
+import { pageMeta } from "@/lib/seo";
+
+export const metadata = pageMeta({
+  title: "TAG Solutions — Technology & Global Solutions",
+  titleAbsolute: true,
+  description:
+    "Empowering your vision with end-to-end tech solutions. AI, software development, cloud engineering and more — trusted by global leaders.",
+  path: "/",
+});
 
 export default async function HomePage() {
   const [caseStudies, blogs] = await Promise.all([getCaseStudies(), getBlogs()]);

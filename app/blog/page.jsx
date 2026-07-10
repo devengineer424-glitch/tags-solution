@@ -3,12 +3,14 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CtaBand from "@/components/CtaBand";
 import { getBlogs } from "@/lib/api";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = pageMeta({
   title: "Blog",
   description:
     "Perspectives on AI, software, cloud, and building products that scale.",
-};
+  path: "/blog",
+});
 
 export default async function BlogPage() {
   const posts = await getBlogs();

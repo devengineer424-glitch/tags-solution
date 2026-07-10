@@ -4,12 +4,14 @@ import Footer from "@/components/Footer";
 import CtaBand from "@/components/CtaBand";
 import { services } from "@/data/services";
 import { serviceGroups } from "@/data/site";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = pageMeta({
   title: "Services",
   description:
     "From custom software to AI, cloud, and growth marketing — TAG Solutions engineers end-to-end solutions tailored to your goals.",
-};
+  path: "/services",
+});
 
 const chipStyle = {
   display: "inline-block",

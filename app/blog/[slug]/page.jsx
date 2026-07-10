@@ -4,7 +4,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CtaBand from "@/components/CtaBand";
 import Markdown from "@/components/Markdown";
+import JsonLd from "@/components/JsonLd";
 import { getBlog, blogFallbackSlugs } from "@/lib/api";
+import { pageMeta, articleSchema, breadcrumbSchema } from "@/lib/seo";
 
 export const dynamicParams = true;
 
@@ -14,7 +16,14 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const p = await getBlog(params.slug);
-  return { title: p ? p.title : "Article" };
+  if (!p) return pageMeta({ title: "Article", path: `/blog/${params.slug}`, noindex: true });
+  return pageMeta({
+    title: p.title,
+    description: p.excerpt,
+    path: `/blog/${p.slug}`,
+    image: p.image,
+    type: "article",
+  });
 }
 
 export default async function BlogDetailPage({ params }) {
@@ -23,8 +32,26 @@ export default async function BlogDetailPage({ params }) {
 
   const ts = post.text_sections || null;
 
+  const path = `/blog/${post.slug}`;
+  const jsonLd = [
+    articleSchema({
+      title: post.title,
+      description: post.excerpt,
+      image: post.image,
+      author: post.author,
+      date: post.date,
+      path,
+    }),
+    breadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Blog", path: "/blog" },
+      { name: post.title, path },
+    ]),
+  ];
+
   return (
     <div className="mil-wrapper">
+      <JsonLd data={jsonLd} />
       <Header transparent />
 
       {/* hero */}

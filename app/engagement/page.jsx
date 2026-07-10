@@ -4,12 +4,14 @@ import Footer from "@/components/Footer";
 import CtaBand from "@/components/CtaBand";
 import CountUp from "@/components/CountUp";
 import { models, factorStats, technologies, comparison, questions, faqGroups } from "@/data/engagement";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = pageMeta({
   title: "Engagement Models",
   description:
     "Choose the engagement model that fits your project — Software Outsourcing, Dedicated Teams, or Staff Augmentation. Compare scope, cost, control, and risk.",
-};
+  path: "/engagement",
+});
 
 const MODEL_COLS = [
   { key: "outsourcing", label: "Software Outsourcing" },

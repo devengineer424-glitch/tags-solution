@@ -4,8 +4,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CtaBand from "@/components/CtaBand";
 import CountUp from "@/components/CountUp";
+import JsonLd from "@/components/JsonLd";
 import { industries, getIndustry } from "@/data/industries";
 import { getCaseStudies } from "@/lib/api";
+import { pageMeta, breadcrumbSchema } from "@/lib/seo";
 
 export function generateStaticParams() {
   return industries.map((i) => ({ slug: i.slug }));
@@ -13,7 +15,13 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }) {
   const i = getIndustry(params.slug);
-  return { title: i ? i.title : "Industry" };
+  if (!i) return pageMeta({ title: "Industry", path: `/industries/${params.slug}`, noindex: true });
+  return pageMeta({
+    title: i.title,
+    description: i.excerpt || i.heroSubtext,
+    path: `/industries/${i.slug}`,
+    image: i.image,
+  });
 }
 
 // Loose keyword match so each industry surfaces the most relevant case studies,
@@ -41,8 +49,15 @@ export default async function IndustryDetailPage({ params }) {
   const caseStudies = await getCaseStudies();
   const related = relatedCases(caseStudies, industry.slug);
 
+  const jsonLd = breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Industries", path: "/industries" },
+    { name: industry.title, path: `/industries/${industry.slug}` },
+  ]);
+
   return (
     <div className="mil-wrapper">
+      <JsonLd data={jsonLd} />
       <Header transparent />
 
       {/* hero */}

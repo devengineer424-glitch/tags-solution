@@ -2,8 +2,14 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import { contact } from "@/data/site";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata = { title: "Contact Us" };
+export const metadata = pageMeta({
+  title: "Contact Us",
+  description:
+    "Have a project in mind? Book a free discovery call with TAG Solutions. Offices in Dubai Silicon Oasis, UAE and Lahore, Pakistan.",
+  path: "/contact",
+});
 
 const infoCards = [
   { icon: "fas fa-map-marker-alt", title: "Our Offices", lines: contact.offices },

@@ -2,8 +2,14 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CtaBand from "@/components/CtaBand";
 import { sled } from "@/data/site";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata = { title: "U.S. SLED Delivery Partner" };
+export const metadata = pageMeta({
+  title: "U.S. SLED Delivery Partner",
+  description:
+    "TAG Solutions delivers secure, compliant, cloud-native software for U.S. State, Local & Education organisations — FedRAMP-aware, NIST 800-53 and CMMC Level 1 aligned.",
+  path: "/sled",
+});
 
 const highlightIcons = [
   "fas fa-landmark",
