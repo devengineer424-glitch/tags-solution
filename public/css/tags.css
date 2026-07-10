@@ -1,0 +1,162 @@
+/* TAG Solutions overrides layered on top of the ITSulu template CSS. */
+
+/* Logo: swap between the light (transparent-bg, white) mark used over the dark
+   hero and the boxed mark used once the header turns solid white on scroll. */
+.mil-top-panel .mil-logo.mil-logo-tags {
+  background: none;
+  width: auto;
+  height: auto;
+}
+.mil-logo-tags img {
+  height: 46px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+/* Solid (scrolled / non-hero) state → show boxed logo, hide light one. */
+.mil-logo-tags .mil-logo-light { display: none; }
+.mil-logo-tags .mil-logo-dark { display: block; }
+/* Transparent state (over dark hero) → show light logo, hide boxed one. */
+.mil-top-panel-transparent .mil-logo-tags .mil-logo-light { display: block; }
+.mil-top-panel-transparent .mil-logo-tags .mil-logo-dark { display: none; }
+
+/* Contact form on the dark gradient panel: make placeholders legible and give
+   the message box a comfortable height. */
+.mil-contact-form input::placeholder,
+.mil-contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+.mil-contact-form textarea {
+  min-height: 140px;
+  padding-top: 15px;
+}
+
+/* Dark gradient panel used to hold the contact form. Unlike the mil-p-* helpers
+   (vertical padding only) and .mil-gradient-bg (an absolute background layer),
+   this is a normal content box with padding on all sides. */
+.mil-form-panel {
+  background: linear-gradient(180deg, #181e26 0%, #121820 100%);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  padding: 56px;
+}
+@media (max-width: 576px) {
+  .mil-form-panel { padding: 32px 24px; }
+}
+
+/* Success story cards (home page "Latest Success Stories"): show in full color by
+   default, and go black & white with the existing zoom on hover — reversing the
+   template's default grayscale-until-hover behavior. */
+.mil-card .mil-cover-frame img {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+}
+.mil-card:hover .mil-cover-frame img {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+/* Breadcrumbs over a dark hero: the template ships no `.mil-breadcrumbs-light`
+   rule, so links default to dark and vanish. Make them light. */
+.mil-breadcrumbs-light li a {
+  color: rgba(255, 255, 255, 0.85);
+}
+.mil-breadcrumbs-light li a:hover {
+  color: #f57c00;
+}
+.mil-breadcrumbs-light li:last-child a {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Service cards (services page grid): hover lift + image zoom. Base look is
+   inline-styled so it survives even if this stylesheet is cached. */
+.mil-svc-card {
+  -webkit-transition: -webkit-transform 0.35s cubic-bezier(0, 0, 0.36, 1), box-shadow 0.35s;
+  transition: transform 0.35s cubic-bezier(0, 0, 0.36, 1), box-shadow 0.35s;
+}
+.mil-svc-card:hover {
+  -webkit-transform: translateY(-6px);
+  transform: translateY(-6px);
+  box-shadow: 0 22px 50px rgba(18, 24, 32, 0.13);
+  border-color: rgba(245, 124, 0, 0.4) !important;
+}
+.mil-svc-card .mil-svc-img img {
+  -webkit-transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+}
+.mil-svc-card:hover .mil-svc-img img {
+  -webkit-transform: scale(1.06);
+  transform: scale(1.06);
+}
+
+/* Solutions mega-menu: multi-column dropdown grouped by solution domain. */
+.mil-top-panel .mil-navigation nav ul li.mil-mega > ul {
+  display: flex;
+  gap: 46px;
+  min-width: 0;
+  width: -webkit-max-content;
+  width: max-content;
+  max-width: 92vw;
+  padding: 36px 40px;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(10px) scale(0.98);
+  transform: translateX(-50%) translateY(10px) scale(0.98);
+}
+.mil-top-panel .mil-navigation nav ul li.mil-mega:hover > ul {
+  -webkit-transform: translateX(-50%) translateY(0) scale(1);
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+.mil-top-panel .mil-navigation nav ul li.mil-mega > ul > li.mil-mega-col {
+  margin: 0;
+}
+.mil-mega-title {
+  margin: 0 0 16px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.mil-mega-title a {
+  color: #f57c00 !important;
+  font-weight: 600 !important;
+}
+.mil-mega-list {
+  /* Undo the template's descendant-ul dropdown styling so the nested list
+     renders inline as a static column instead of a hidden fly-out. */
+  position: static !important;
+  opacity: 1 !important;
+  /* Inherit the container's pointer-events (none while hidden, all on hover) so
+     the invisible panel doesn't capture the cursor and open on near-hover. */
+  pointer-events: inherit !important;
+  -webkit-transform: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  min-width: 0 !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+  top: auto;
+  left: auto;
+}
+.mil-mega-list li {
+  margin: 0 0 12px;
+  list-style: none;
+}
+.mil-mega-list li:last-child { margin-bottom: 0; }
+.mil-mega-list li a { white-space: nowrap; }
+
+/* Stack the mega columns when the nav collapses on smaller screens. */
+@media (max-width: 1200px) {
+  .mil-top-panel .mil-navigation nav ul li.mil-mega > ul {
+    flex-direction: column;
+    gap: 24px;
+    left: 0;
+    -webkit-transform: translateY(10px) scale(0.98);
+    transform: translateY(10px) scale(0.98);
+  }
+  .mil-top-panel .mil-navigation nav ul li.mil-mega:hover > ul {
+    -webkit-transform: translateY(0) scale(1);
+    transform: translateY(0) scale(1);
+  }
+}
