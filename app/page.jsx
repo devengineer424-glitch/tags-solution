@@ -230,7 +230,7 @@ export default async function HomePage() {
                   style={{ display: "flex", flexDirection: "column", height: "100%", padding: "40px 34px", background: "#fff", borderRadius: "14px", border: m.featured ? "2px solid #f57c00" : "1px solid rgba(18,24,32,.08)", position: "relative" }}
                 >
                   {m.featured && (
-                    <span className="mil-accent-bg" style={{ position: "absolute", top: "-13px", left: "34px", color: "#121820", fontSize: "11px", fontWeight: 600, padding: "5px 14px", borderRadius: "20px" }}>Most Popular</span>
+                    <span style={{ position: "absolute", top: "-13px", left: "50%", transform: "translateX(-50%)", background: "#f57c00", color: "#121820", fontSize: "11px", fontWeight: 700, letterSpacing: "0.04em", textTransform: "uppercase", padding: "6px 16px", borderRadius: "20px", whiteSpace: "nowrap", boxShadow: "0 6px 16px rgba(245,124,0,.35)" }}>Most Popular</span>
                   )}
                   <span className="mil-accent" style={{ fontFamily: "Syne, sans-serif", fontWeight: 700, fontSize: "22px", marginBottom: "14px" }}>{String(i + 1).padStart(2, "0")}</span>
                   <h4 className="mil-mb-15">{m.title}</h4>

@@ -74,7 +74,7 @@ export default function Page() {
               <div className="col-lg-4 mil-mb-30" key={model.key}>
                 <div style={{ display: "flex", flexDirection: "column", height: "100%", position: "relative", padding: "44px 34px", borderRadius: "12px", border: model.featured ? "2px solid #f57c00" : "1px solid rgba(18,24,32,.1)", background: "#fff" }}>
                   {model.featured && (
-                    <span className="mil-accent-bg" style={{ position: "absolute", top: "-14px", left: "50%", transform: "translateX(-50%)", color: "#121820", fontSize: "12px", fontWeight: 600, padding: "5px 16px", borderRadius: "20px", whiteSpace: "nowrap" }}>Most Popular</span>
+                    <span style={{ position: "absolute", top: "-14px", left: "50%", transform: "translateX(-50%)", background: "#f57c00", color: "#121820", fontSize: "12px", fontWeight: 700, letterSpacing: "0.04em", textTransform: "uppercase", padding: "6px 18px", borderRadius: "20px", whiteSpace: "nowrap", boxShadow: "0 6px 16px rgba(245,124,0,.35)" }}>Most Popular</span>
                   )}
                   <p className="mil-text-sm mil-mb-15">{model.price}</p>
                   <h4 className="mil-mb-15">{model.title}</h4>
