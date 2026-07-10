@@ -19,6 +19,13 @@
 /* Transparent state (over dark hero) → show light logo, hide boxed one. */
 .mil-top-panel-transparent .mil-logo-tags .mil-logo-light { display: block; }
 .mil-top-panel-transparent .mil-logo-tags .mil-logo-dark { display: none; }
+/* At <=1200px the template forces the "transparent" header to a solid white
+   background (see style.css @media), so the white logo would be invisible.
+   Show the boxed dark logo there instead, matching the template's own swap. */
+@media screen and (max-width: 1200px) {
+  .mil-top-panel-transparent .mil-logo-tags .mil-logo-light { display: none; }
+  .mil-top-panel-transparent .mil-logo-tags .mil-logo-dark { display: block; }
+}
 
 /* Contact form on the dark gradient panel: make placeholders legible and give
    the message box a comfortable height. */
@@ -146,17 +153,17 @@
 .mil-mega-list li:last-child { margin-bottom: 0; }
 .mil-mega-list li a { white-space: nowrap; }
 
-/* Stack the mega columns when the nav collapses on smaller screens. */
-@media (max-width: 1200px) {
+/* Mobile menu: the multi-column mega panel can't render inside the template's
+   stacked mobile nav (it collapses to a gray box with one heading). Hide the
+   mega dropdowns on mobile — tapping the parent link goes to the section index
+   (Services/Solutions), which lists everything. */
+@media screen and (max-width: 1200px) {
   .mil-top-panel .mil-navigation nav ul li.mil-mega > ul {
-    flex-direction: column;
-    gap: 24px;
-    left: 0;
-    -webkit-transform: translateY(10px) scale(0.98);
-    transform: translateY(10px) scale(0.98);
+    display: none !important;
   }
-  .mil-top-panel .mil-navigation nav ul li.mil-mega:hover > ul {
-    -webkit-transform: translateY(0) scale(1);
-    transform: translateY(0) scale(1);
+  /* The dropdown "dot" marker after Services/Solutions is now meaningless on
+     mobile since there's no dropdown — hide it for those two. */
+  .mil-top-panel .mil-navigation nav ul li.mil-mega > a:before {
+    display: none;
   }
 }
