@@ -1,4 +1,5 @@
 import TemplateEffects from "@/components/TemplateEffects";
+import ScrollProgress from "@/components/ScrollProgress";
 import CookieConsent from "@/components/CookieConsent";
 import JsonLd from "@/components/JsonLd";
 import { SITE_URL, organizationSchema, websiteSchema } from "@/lib/seo";
@@ -69,6 +70,7 @@ export default function RootLayout({ children }) {
       <body>
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
         {children}
+        <ScrollProgress />
         <TemplateEffects />
         <CookieConsent />
       </body>

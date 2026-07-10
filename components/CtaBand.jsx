@@ -22,7 +22,7 @@ export default function CtaBand({
             <p className="mil-light-soft mil-mb-60" style={{ maxWidth: "620px", margin: "0 auto 60px" }}>
               {description}
             </p>
-            <div className="mil-buttons-frame mil-center" style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "15px" }}>
+            <div className="mil-buttons-frame mil-center mil-cta-buttons" style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "15px" }}>
               <Link href={primary.href} className="mil-button mil-accent-bg">
                 <span>{primary.label}</span>
               </Link>

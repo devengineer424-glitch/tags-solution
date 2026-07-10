@@ -12,20 +12,20 @@ export const testimonials = [
       "The custom analytics platform from Tags has given us powerful insights, driving better business decisions.",
     name: "Jason Wong",
     role: "CEO at Omnicharge",
-    img: "/tags/jason-wong.png",
+    img: "/tags/jason-wong.jpg",
   },
   {
     quote:
       "Tag Solutions' generative AI solutions have revolutionized our innovation process, allowing us to create value faster than ever.",
     name: "Joe",
     role: "Client",
-    img: "/tags/joe-client.png",
+    img: "/tags/joe-client.jpg",
   },
   {
     quote:
       "It is a highly professional and efficient company, skilled in breaking down tasks and gathering precise requirements. Their focus on component-based development makes them ideal for projects with tight deadlines.",
     name: "Smith",
     role: "Upwork Client",
-    img: "/tags/steven-davis.png",
+    img: "/tags/smith.jpg",
   },
 ];

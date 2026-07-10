@@ -111,10 +111,19 @@ export default async function HomePage() {
       <div className="mil-partners mil-p-90-60">
         <div className="container">
           <p className="mil-text-center mil-mb-30 mil-upper mil-suptitle-2">Our Employees are Certified by Big Companies</p>
-          <div className="mil-partners-frame">
+          {/* desktop: static grid */}
+          <div className="mil-partners-frame mil-trust-desktop">
             {trustLogos.map((logo) => (
               <a href="#" key={logo.name}><img src={logo.src} alt={logo.name} style={{ maxHeight: "34px", width: "auto" }} /></a>
             ))}
+          </div>
+          {/* mobile: seamless left-to-right marquee (logos duplicated for the loop) */}
+          <div className="mil-trust-marquee" aria-hidden="true">
+            <div className="mil-trust-track">
+              {[...trustLogos, ...trustLogos].map((logo, i) => (
+                <a href="#" key={`${logo.name}-${i}`}><img src={logo.src} alt={logo.name} /></a>
+              ))}
+            </div>
           </div>
         </div>
       </div>

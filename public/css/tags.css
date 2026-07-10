@@ -167,3 +167,172 @@
     display: none;
   }
 }
+
+/* Hero fit on mobile: the template's banner is height:100vh with content
+   vertically centered but also carrying padding-top:200px, and the h1 renders
+   at 42px. On phones that combination makes the 4-5 line headline + description
+   overflow, pushing the CTAs below the fold on first view. Anchor the content to
+   the top under the fixed header, shrink the headline, and tighten the vertical
+   rhythm so eyebrow -> headline -> copy -> CTAs all land in the first viewport. */
+@media screen and (max-width: 992px) {
+  .mil-banner .mil-banner-content {
+    padding-top: 120px;
+    padding-bottom: 40px;
+    align-items: flex-start;
+  }
+  .mil-banner .mil-banner-content h1 {
+    font-size: 34px;
+  }
+  .mil-banner .mil-banner-content .mil-mb-30 {
+    margin-bottom: 18px !important;
+  }
+  .mil-banner .mil-banner-content p {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+  }
+}
+@media screen and (max-width: 480px) {
+  .mil-banner .mil-banner-content {
+    padding-top: 105px;
+  }
+  .mil-banner .mil-banner-content h1 {
+    font-size: 29px;
+  }
+}
+
+/* Hero buttons on mobile: the template's base .mil-button uses padding:0 60px,
+   which balloons the long "Book a Discovery Call" label to near-full-width while
+   the short "Explore Services" stays narrow — so they render as mismatched pills.
+   The hero also sets flexWrap inline, defeating the framework's stack-to-column
+   rule. Force a clean, equal, full-width stacked layout on small screens. */
+@media screen and (max-width: 992px) {
+  .mil-banner .mil-buttons-frame {
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    width: 100%;
+  }
+  .mil-banner .mil-buttons-frame .mil-button {
+    width: 100%;
+    height: 58px;
+    padding: 0 24px;
+    margin: 0;
+  }
+}
+
+/* Trust-strip logos on mobile: the template drops the row to 2 columns with
+   justify-content:space-between, which shoves each pair to the far edges (big
+   middle gap) and strands the odd 5th logo alone on the left. Let the logos
+   flow centered and wrap naturally so every row — including a short last row —
+   is balanced. */
+@media screen and (max-width: 992px) {
+  .mil-partners-frame {
+    justify-content: center !important;
+    gap: 28px 36px;
+  }
+  .mil-partners-frame a {
+    width: auto !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+/* Trust-strip marquee: on mobile the certified-by logos scroll continuously
+   left-to-right as a single row instead of a static grid. The desktop grid is
+   hidden on mobile and vice-versa. The track holds two copies of the logo set
+   so the loop is seamless (animating a full 50% == one complete set width). */
+.mil-trust-marquee { display: none; }
+@media screen and (max-width: 992px) {
+  .mil-partners-frame.mil-trust-desktop { display: none !important; }
+  .mil-trust-marquee {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  }
+  .mil-trust-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    /* start shifted one set to the left, slide back to 0 => travels left->right */
+    animation: mil-trust-scroll 24s linear infinite;
+  }
+  .mil-trust-track a {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 26px;
+    /* no hover on touch, so show the logos in full color rather than grayscale */
+    filter: none;
+  }
+  .mil-trust-track a img {
+    height: 34px;
+    width: auto;
+    display: block;
+  }
+  @keyframes mil-trust-scroll {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mil-trust-track { animation: none; }
+  }
+}
+
+/* Closing CTA band buttons on mobile: same mismatched-pill problem as the hero
+   (padding:0 60px makes the long label balloon while the short one stays narrow).
+   Stack them equal and full-width for a clean, consistent pair. */
+@media screen and (max-width: 992px) {
+  .mil-cta-buttons {
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    width: 100%;
+  }
+  .mil-cta-buttons .mil-button {
+    width: 100%;
+    height: 58px;
+    padding: 0 24px;
+    margin: 0;
+  }
+}
+
+/* Newsletter form on mobile: the template stacks the input above the button
+   below 768px, but both keep their desktop sizing (input height:70-80px, the
+   .mil-button height:70px), so the pair looks oversized on a phone. Slim both
+   down to a comfortable touch height. */
+@media screen and (max-width: 768px) {
+  .mil-subscribe-form input {
+    height: 54px;
+    padding: 0 24px;
+    font-size: 15px;
+  }
+  .mil-subscribe-form button.mil-button {
+    height: 52px;
+    padding: 0 24px;
+  }
+}
+
+/* Site-wide scroll progress bar (see components/ScrollProgress.jsx): a thin
+   track fixed to the bottom of the viewport whose orange fill grows with scroll
+   depth. Sits above page content but the track itself is transparent so it's
+   unobtrusive. */
+.mil-scroll-progress {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  background: rgba(18, 24, 32, 0.08);
+  z-index: 9999;
+  pointer-events: none;
+}
+.mil-scroll-progress-bar {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #f57c00, #ff9d3c);
+  box-shadow: 0 0 10px rgba(245, 124, 0, 0.6);
+  border-radius: 0 4px 4px 0;
+  transition: width 0.1s linear;
+}
