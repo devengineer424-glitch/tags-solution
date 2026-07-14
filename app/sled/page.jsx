@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CtaBand from "@/components/CtaBand";
-import { sled } from "@/data/site";
+import { sled, CALENDLY_URL } from "@/data/site";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
@@ -97,7 +97,7 @@ export default function Page() {
         title="Delivering for the"
         highlight="Public Sector"
         description="Talk to us about your SLED modernization or net-new build."
-        primary={{ label: "Contact Us", href: "/contact" }}
+        primary={{ label: "Book a Discovery Call", href: CALENDLY_URL }}
         secondary={null}
       />
 

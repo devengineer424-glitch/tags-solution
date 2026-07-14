@@ -72,7 +72,7 @@ export default function FooterBig() {
                     <li><Link href="/faq">FAQ</Link></li>
                     <li><Link href="/contact">Contact Us</Link></li>
                     {social.slice(0, 3).map((s) => (
-                      <li key={s.label}><a href={s.href}>{s.label}</a></li>
+                      <li key={s.label}><a href={s.href} target="_blank" rel="noopener noreferrer">{s.label}</a></li>
                     ))}
                   </ul>
                 </div>

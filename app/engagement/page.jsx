@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import CtaBand from "@/components/CtaBand";
 import CountUp from "@/components/CountUp";
 import { models, factorStats, technologies, comparison, questions, faqGroups } from "@/data/engagement";
+import { CALENDLY_URL } from "@/data/site";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
@@ -87,7 +88,7 @@ export default function Page() {
                       <li key={f} className="mil-mb-15"><img src="/img/icons/sm/12.svg" alt="icon" /><span className="mil-dark mil-text-sm">{f}</span></li>
                     ))}
                   </ul>
-                  <Link href="/contact" className={`mil-button mil-fw ${model.featured ? "mil-accent-bg" : "mil-border"}`}><span>Book a Discovery Call</span></Link>
+                  <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className={`mil-button mil-fw ${model.featured ? "mil-accent-bg" : "mil-border"}`}><span>Book a Discovery Call</span></a>
                 </div>
               </div>
             ))}
@@ -235,7 +236,7 @@ export default function Page() {
       {/* FAQ end */}
 
       <CtaBand
-        primary={{ label: "Book a Discovery Call", href: "/contact" }}
+        primary={{ label: "Book a Discovery Call", href: CALENDLY_URL }}
         secondary={{ label: "See Our Work", href: "/success-stories" }}
       />
 

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" role="img">
+
+  <defs>
+    <radialGradient id="bg-g" cx="62%" cy="40%" r="85%">
+      <stop offset="0%" stop-color="#151d27"/>
+      <stop offset="55%" stop-color="#0e141b"/>
+      <stop offset="100%" stop-color="#090d12"/>
+    </radialGradient>
+    <pattern id="dots-g" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.5" fill="#ffffff" fill-opacity="0.05"/>
+    </pattern>
+    <radialGradient id="glow-g" cx="62%" cy="42%" r="55%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <style>
+    .flow  { animation: flow 3.5s linear infinite; }
+    .flow2 { animation: flow 6s linear infinite; }
+    .spin  { transform-box: fill-box; transform-origin: center; animation: spin 90s linear infinite; }
+    .spinR { transform-box: fill-box; transform-origin: center; animation: spin 120s linear infinite reverse; }
+    .twinkle { animation: twinkle 4s ease-in-out infinite; }
+    .ping  { transform-box: fill-box; transform-origin: center; animation: ping 3s ease-out infinite; }
+    .drift { animation: drift 7s ease-in-out infinite; }
+    .blink { animation: blink 2.6s ease-in-out infinite; }
+    .breathe { animation: breathe 5s ease-in-out infinite; }
+    @keyframes flow    { to { stroke-dashoffset: -180; } }
+    @keyframes spin    { to { transform: rotate(360deg); } }
+    @keyframes twinkle { 0%,100% { opacity: .3; } 50% { opacity: .95; } }
+    @keyframes ping    { 0% { transform: scale(.5); opacity: .7; } 100% { transform: scale(2.4); opacity: 0; } }
+    @keyframes drift   { 0%,100% { transform: translateY(0); opacity: .18; } 50% { transform: translateY(-26px); opacity: .5; } }
+    @keyframes blink   { 0%,100% { opacity: .25; } 50% { opacity: 1; } }
+    @keyframes breathe { 0%,100% { opacity: .35; } 50% { opacity: .85; } }
+    @media (prefers-reduced-motion: reduce) {
+      .flow,.flow2,.spin,.spinR,.twinkle,.ping,.drift,.blink,.breathe { animation: none; }
+    }
+  </style>
+
+  <rect width="1600" height="1000" fill="url(#bg-g)"/>
+  <rect width="1600" height="1000" fill="url(#dots-g)"/>
+  <rect width="1600" height="1000" fill="url(#glow-g)"/>
+<circle cx="1010" cy="470" r="340" fill="none" stroke="#ffffff" stroke-opacity="0.28" stroke-width="1.5"/><ellipse cx="1010" cy="470" rx="106.25" ry="340" fill="none" stroke="#ffffff" stroke-opacity="0.14" stroke-width="1.2"/><ellipse cx="1010" cy="470" rx="212.5" ry="340" fill="none" stroke="#ffffff" stroke-opacity="0.14" stroke-width="1.2"/><ellipse cx="1010" cy="470" rx="318.75" ry="340" fill="none" stroke="#ffffff" stroke-opacity="0.14" stroke-width="1.2"/><line x1="1010" y1="130" x2="1010" y2="810" stroke="#ffffff" stroke-opacity="0.14" stroke-width="1.2"/><ellipse cx="1010" cy="243.33333333333334" rx="253.42103744997618" ry="55.75262823899476" fill="none" stroke="#ffffff" stroke-opacity="0.12" stroke-width="1.2"/><ellipse cx="1010" cy="356.6666666666667" rx="320.55507413790156" ry="70.52211631033835" fill="none" stroke="#ffffff" stroke-opacity="0.12" stroke-width="1.2"/><ellipse cx="1010" cy="470" rx="340" ry="74.8" fill="none" stroke="#ffffff" stroke-opacity="0.12" stroke-width="1.2"/><ellipse cx="1010" cy="583.3333333333334" rx="320.55507413790156" ry="70.52211631033835" fill="none" stroke="#ffffff" stroke-opacity="0.12" stroke-width="1.2"/><ellipse cx="1010" cy="696.6666666666666" rx="253.4210374499762" ry="55.75262823899477" fill="none" stroke="#ffffff" stroke-opacity="0.12" stroke-width="1.2"/><path d="M1023.2 745.6 Q 1071.5 721.4 1086.1 792.5" fill="none" stroke="#ffffff" stroke-opacity="0.20" stroke-width="1"/><path d="M1023.2 745.6 Q 1022.9 725.3 1048.5 791.0" fill="none" stroke="#ffffff" stroke-opacity="0.20" stroke-width="1"/><path d="M1023.2 745.6 Q 982.1 722.4 980.8 800.8" fill="none" stroke="#ffffff" stroke-opacity="0.20" stroke-width="1"/><path d="M1233.0 707.1 Q 1244.2 619.3 1252.0 636.0" fill="none" stroke="#ffffff" stroke-opacity="0.14" stroke-width="1"/><path d="M914.0 172.2 Q 858.7 141.3 810.9 208.8" fill="none" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/><path d="M1086.1 792.5 Q 1044.9 737.9 980.8 800.8" fill="none" stroke="#ffffff" stroke-opacity="0.12" stroke-width="1"/><path d="M693.4 501.9 Q 759.0 443.6 793.8 457.7" fill="none" stroke="#ffffff" stroke-opacity="0.15" stroke-width="1"/><path d="M793.8 457.7 Q 827.0 350.0 824.1 345.2" fill="none" stroke="#ffffff" stroke-opacity="0.24" stroke-width="1"/><path d="M1252.0 636.0 Q 1235.0 554.7 1253.7 551.0" fill="none" stroke="#ffffff" stroke-opacity="0.19" stroke-width="1"/><path d="M810.9 208.8 Q 817.9 224.3 824.1 345.2" fill="none" stroke="#ffffff" stroke-opacity="0.13" stroke-width="1"/><path d="M810.9 208.8 Q 859.1 184.9 920.8 242.2" fill="none" stroke="#ffffff" stroke-opacity="0.13" stroke-width="1"/><path d="M810.9 208.8 Q 798.4 196.0 756.2 255.5" fill="none" stroke="#ffffff" stroke-opacity="0.13" stroke-width="1"/><path d="M920.8 242.2 Q 829.3 203.2 756.2 255.5" fill="none" stroke="#ffffff" stroke-opacity="0.22" stroke-width="1"/><circle class="twinkle" style="animation-delay:0.00s" cx="1023.2" cy="745.6" r="3.4" fill="#f5943a" fill-opacity="0.68"/><circle class="ping" style="animation-delay:0.00s" cx="1023.2" cy="745.6" r="8.4" fill="none" stroke="#f5943a" stroke-opacity="0.4" stroke-width="1"/><circle class="twinkle" style="animation-delay:0.27s" cx="1233.0" cy="707.1" r="2.7" fill="#ffffff" fill-opacity="0.51"/><circle class="twinkle" style="animation-delay:0.54s" cx="914.0" cy="172.2" r="3.0" fill="#ffffff" fill-opacity="0.57"/><circle class="twinkle" style="animation-delay:0.81s" cx="1086.1" cy="792.5" r="2.4" fill="#ffffff" fill-opacity="0.45"/><circle class="twinkle" style="animation-delay:1.08s" cx="693.4" cy="501.9" r="2.9" fill="#ffffff" fill-opacity="0.55"/><circle class="twinkle" style="animation-delay:1.35s" cx="776.6" cy="704.7" r="2.5" fill="#ffffff" fill-opacity="0.46"/><circle class="twinkle" style="animation-delay:1.62s" cx="793.8" cy="457.7" r="3.9" fill="#f5943a" fill-opacity="0.78"/><circle class="ping" style="animation-delay:2.40s" cx="793.8" cy="457.7" r="8.9" fill="none" stroke="#f5943a" stroke-opacity="0.4" stroke-width="1"/><circle class="twinkle" style="animation-delay:1.89s" cx="1252.0" cy="636.0" r="3.2" fill="#ffffff" fill-opacity="0.64"/><circle class="twinkle" style="animation-delay:2.16s" cx="1048.5" cy="791.0" r="2.7" fill="#ffffff" fill-opacity="0.52"/><circle class="twinkle" style="animation-delay:2.43s" cx="1248.9" cy="439.9" r="3.7" fill="#ffffff" fill-opacity="0.75"/><circle class="twinkle" style="animation-delay:2.70s" cx="810.9" cy="208.8" r="2.6" fill="#ffffff" fill-opacity="0.48"/><circle class="twinkle" style="animation-delay:2.97s" cx="1253.7" cy="551.0" r="3.6" fill="#ffffff" fill-opacity="0.72"/><circle class="twinkle" style="animation-delay:3.24s" cx="977.7" cy="530.3" r="4.4" fill="#f5943a" fill-opacity="0.89"/><circle class="ping" style="animation-delay:4.80s" cx="977.7" cy="530.3" r="9.4" fill="none" stroke="#f5943a" stroke-opacity="0.4" stroke-width="1"/><circle class="twinkle" style="animation-delay:3.51s" cx="824.1" cy="345.2" r="3.8" fill="#ffffff" fill-opacity="0.77"/><circle class="twinkle" style="animation-delay:3.78s" cx="920.8" cy="242.2" r="3.7" fill="#ffffff" fill-opacity="0.74"/><circle class="twinkle" style="animation-delay:4.05s" cx="980.8" cy="800.8" r="2.4" fill="#ffffff" fill-opacity="0.44"/><circle class="twinkle" style="animation-delay:4.32s" cx="756.2" cy="255.5" r="2.4" fill="#ffffff" fill-opacity="0.44"/><path class="flow" style="animation-delay:0.00s" d="M760 410 Q 575 100 390 220" fill="none" stroke="#ffffff" stroke-opacity="0.4" stroke-width="1.5" stroke-dasharray="2 7" stroke-linecap="round"/><circle cx="390" cy="220" r="5" fill="#f5943a" fill-opacity="0.9"/><circle class="ping" style="animation-delay:0.00s" cx="390" cy="220" r="11" fill="none" stroke="#f5943a" stroke-opacity="0.45" stroke-width="1"/><circle r="3.2" fill="#f5943a" fill-opacity="0.95">
+    <animateMotion dur="4s" begin="0s" repeatCount="indefinite" path="M760 410 Q 575 100 390 220" keyPoints="0;1" keyTimes="0;1" calcMode="linear"/>
+    <animate attributeName="fill-opacity" dur="4s" begin="0s" repeatCount="indefinite" values="0;0.95;0.95;0" keyTimes="0;0.1;0.85;1"/>
+  </circle><path class="flow" style="animation-delay:0.90s" d="M810 650 Q 630 530 450 830" fill="none" stroke="#ffffff" stroke-opacity="0.4" stroke-width="1.5" stroke-dasharray="2 7" stroke-linecap="round"/><circle cx="450" cy="830" r="5" fill="#f5943a" fill-opacity="0.9"/><circle class="ping" style="animation-delay:0.70s" cx="450" cy="830" r="11" fill="none" stroke="#f5943a" stroke-opacity="0.45" stroke-width="1"/><circle r="3.2" fill="#f5943a" fill-opacity="0.95">
+    <animateMotion dur="5s" begin="1.3s" repeatCount="indefinite" path="M810 650 Q 630 530 450 830" keyPoints="0;1" keyTimes="0;1" calcMode="linear"/>
+    <animate attributeName="fill-opacity" dur="5s" begin="1.3s" repeatCount="indefinite" values="0;0.95;0.95;0" keyTimes="0;0.1;0.85;1"/>
+  </circle><path class="flow" style="animation-delay:1.80s" d="M1270 350 Q 1400 50 1530 170" fill="none" stroke="#ffffff" stroke-opacity="0.4" stroke-width="1.5" stroke-dasharray="2 7" stroke-linecap="round"/><circle cx="1530" cy="170" r="5" fill="#f5943a" fill-opacity="0.9"/><circle class="ping" style="animation-delay:1.40s" cx="1530" cy="170" r="11" fill="none" stroke="#f5943a" stroke-opacity="0.45" stroke-width="1"/><circle r="3.2" fill="#f5943a" fill-opacity="0.95">
+    <animateMotion dur="6s" begin="2.6s" repeatCount="indefinite" path="M1270 350 Q 1400 50 1530 170" keyPoints="0;1" keyTimes="0;1" calcMode="linear"/>
+    <animate attributeName="fill-opacity" dur="6s" begin="2.6s" repeatCount="indefinite" values="0;0.95;0.95;0" keyTimes="0;0.1;0.85;1"/>
+  </circle><circle class="spin" cx="1010" cy="470" r="395" fill="none" stroke="#ffffff" stroke-opacity="0.10" stroke-width="1" stroke-dasharray="1 9"/><circle class="spinR" cx="1010" cy="470" r="435" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="1" stroke-dasharray="1 16"/>
+</svg>

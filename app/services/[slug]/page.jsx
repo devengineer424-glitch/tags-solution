@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import CtaBand from "@/components/CtaBand";
 import JsonLd from "@/components/JsonLd";
 import { services, getService } from "@/data/services";
+import { CALENDLY_URL } from "@/data/site";
 import { pageMeta, serviceSchema, breadcrumbSchema } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -89,7 +90,7 @@ export default function ServiceDetailPage({ params }) {
                   ))}
                 </div>
                 <div className="mil-buttons-frame" style={{ display: "flex", flexWrap: "wrap", gap: "15px" }}>
-                  <Link href="/contact" className="mil-button mil-accent-bg"><span>Book a Discovery Call</span></Link>
+                  <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="mil-button mil-accent-bg"><span>Book a Discovery Call</span></a>
                   <Link href="/success-stories" className="mil-button mil-border mil-light"><span>See Our Work</span></Link>
                 </div>
               </div>
@@ -222,7 +223,7 @@ export default function ServiceDetailPage({ params }) {
       </section>
       {/* other services end */}
 
-      <CtaBand primary={{ label: "Book a Discovery Call", href: "/contact" }} secondary={{ label: "View All Services", href: "/services" }} />
+      <CtaBand primary={{ label: "Book a Discovery Call", href: CALENDLY_URL }} secondary={{ label: "View All Services", href: "/services" }} />
 
       <Footer />
     </div>

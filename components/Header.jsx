@@ -52,13 +52,13 @@ export default function Header({ transparent = false, fluid = false }) {
                   </ul>
                 </li>
                 <li><Link href="/success-stories">Success Stories</Link></li>
-                <li><Link href="/blog">Blog</Link></li>
+                <li><Link href="/engagement">Engagement Models</Link></li>
                 <li><Link href="/careers">Careers</Link></li>
                 <li className="mil-has-children">
                   <a href="#">Company</a>
                   <ul>
                     <li><Link href="/industries">Industries</Link></li>
-                    <li><Link href="/engagement">Engagement Models</Link></li>
+                    <li><Link href="/blog">Blog</Link></li>
                     <li><Link href="/sled">U.S. SLED Partner</Link></li>
                     <li><Link href="/faq">FAQ</Link></li>
                     <li><Link href="/contact">Contact Us</Link></li>

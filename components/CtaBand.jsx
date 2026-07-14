@@ -1,6 +1,24 @@
 import Link from "next/link";
 import { cta as defaultCta } from "@/data/site";
 
+// Render an internal href with next/link and an external (http/https) href with
+// a plain anchor that opens in a new tab.
+function CtaLink({ href, className, children }) {
+  const external = /^https?:\/\//.test(href);
+  if (external) {
+    return (
+      <a href={href} className={className} target="_blank" rel="noopener noreferrer">
+        {children}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} className={className}>
+      {children}
+    </Link>
+  );
+}
+
 // Reusable closing call-to-action band (Arbisoft-style). Drop at the bottom of
 // any page. Props override the site-wide default copy.
 export default function CtaBand({
@@ -23,13 +41,13 @@ export default function CtaBand({
               {description}
             </p>
             <div className="mil-buttons-frame mil-center mil-cta-buttons" style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "15px" }}>
-              <Link href={primary.href} className="mil-button mil-accent-bg">
+              <CtaLink href={primary.href} className="mil-button mil-accent-bg">
                 <span>{primary.label}</span>
-              </Link>
+              </CtaLink>
               {secondary && (
-                <Link href={secondary.href} className="mil-button mil-border mil-light-border">
+                <CtaLink href={secondary.href} className="mil-button mil-border mil-light-border">
                   <span className="mil-light">{secondary.label}</span>
-                </Link>
+                </CtaLink>
               )}
             </div>
           </div>

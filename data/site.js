@@ -3,6 +3,9 @@
 // stats, trust logos, engagement models, and FAQ. Ported from the current site
 // with Arbisoft-style B2B additions (engagement models, trust strip, FAQ).
 
+// External scheduling link — booking / discovery-call CTAs point here.
+export const CALENDLY_URL = "https://calendly.com/contact-tagsolutionsltd/30min";
+
 export const company = {
   name: "TAG Solutions",
   short: "TAGS",
@@ -18,7 +21,6 @@ export const contact = {
   offices: ["Dubai Silicon Oasis, UAE", "Lahore, Punjab, Pakistan"],
   phones: ["+97-1508620567", "+92-3125050567"],
   emails: ["contact@tagsolutionsltd.com", "hr@tagsolutionsltd.com"],
-  hours: ["Mon - Fri: 9:00 AM - 6:00 PM", "Sat - Sun: Closed"],
 };
 
 export const social = [
@@ -150,7 +152,7 @@ export const hero = {
   description:
     "Unlock new levels of innovation and efficiency with our cutting-edge AI and software services trusted by global leaders to transform your unique business challenges into reality.",
   primaryCta: { label: "Learn More", href: "/about" },
-  secondaryCta: { label: "Contact Us", href: "/contact" },
+  secondaryCta: { label: "Book a Call", href: CALENDLY_URL },
 };
 
 // Company-wide credibility stats (Arbisoft-style social proof band).
@@ -282,6 +284,6 @@ export const cta = {
   highlight: "Project?",
   description:
     "Have a project in mind or want to learn more about our services? Let's turn your vision into a scalable, high-performance reality.",
-  primary: { label: "Book a Discovery Call", href: "/contact" },
+  primary: { label: "Book a Discovery Call", href: CALENDLY_URL },
   secondary: { label: "Explore Services", href: "/services" },
 };

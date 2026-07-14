@@ -15,7 +15,6 @@ const infoCards = [
   { icon: "fas fa-map-marker-alt", title: "Our Offices", lines: contact.offices },
   { icon: "fas fa-phone", title: "Call Us", lines: contact.phones },
   { icon: "fas fa-envelope", title: "Email Us", lines: contact.emails },
-  { icon: "fas fa-clock", title: "Working Hours", lines: contact.hours },
 ];
 
 export default function Page() {

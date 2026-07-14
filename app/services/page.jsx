@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CtaBand from "@/components/CtaBand";
 import { services } from "@/data/services";
-import { serviceGroups } from "@/data/site";
+import { serviceGroups, CALENDLY_URL } from "@/data/site";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
@@ -167,7 +167,7 @@ export default function ServicesPage() {
       </section>
       {/* approach end */}
 
-      <CtaBand primary={{ label: "Book a Discovery Call", href: "/contact" }} secondary={{ label: "View Our Work", href: "/success-stories" }} />
+      <CtaBand primary={{ label: "Book a Discovery Call", href: CALENDLY_URL }} secondary={{ label: "View Our Work", href: "/success-stories" }} />
 
       <Footer />
     </div>

@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CtaBand from "@/components/CtaBand";
 import CountUp from "@/components/CountUp";
-import { hero, stats, trustLogos } from "@/data/site";
+import { hero, stats, trustLogos, CALENDLY_URL } from "@/data/site";
 import { services } from "@/data/services";
 import { industries } from "@/data/industries";
 import { testimonials } from "@/data/testimonials";
@@ -55,9 +55,13 @@ export default async function HomePage() {
       <div className="mil-banner mil-top-space-0">
         <div className="swiper-container mil-banner-slideshow">
           <div className="swiper-wrapper">
-            {["/img/photo/1.jpg", "/img/photo/2.jpg", "/img/photo/3.jpg"].map((img, i) => (
+            {[
+              { src: "/img/hero/hero-1-global.svg", alt: "Global connected network illustration" },
+              { src: "/img/hero/hero-2-ai.svg", alt: "AI neural network illustration" },
+              { src: "/img/hero/hero-3-cloud.svg", alt: "Cloud microservices architecture illustration" },
+            ].map((img, i) => (
               <div className="swiper-slide" key={i}>
-                <img src={img} className="mil-background-image" style={{ objectPosition: "center" }} data-swiper-parallax="-100" data-swiper-parallax-scale="1.1" alt="image" />
+                <img src={img.src} className="mil-background-image" style={{ objectPosition: "center" }} data-swiper-parallax="-100" data-swiper-parallax-scale="1.1" alt={img.alt} />
               </div>
             ))}
           </div>
@@ -72,7 +76,7 @@ export default async function HomePage() {
                 <h1 className="mil-mb-30"><span className="mil-uppercase mil-light">{hero.titlePrefix}</span> <span className="mil-font-3 mil-accent">{hero.titleHighlight}</span> <span className="mil-uppercase mil-light">{hero.titleSuffix}</span></h1>
                 <p className="mil-light-soft mil-mb-30" style={{ maxWidth: "600px", fontSize: "17px", lineHeight: 1.7 }}>{hero.description}</p>
                 <div className="mil-buttons-frame" style={{ display: "flex", flexWrap: "wrap", gap: "15px" }}>
-                  <Link href="/contact" className="mil-button mil-accent-bg"><span>Book a Discovery Call</span></Link>
+                  <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="mil-button mil-accent-bg"><span>Book a Discovery Call</span></a>
                   <Link href="/services" className="mil-button mil-border mil-light"><span>Explore Services</span></Link>
                 </div>
               </div>
@@ -310,7 +314,7 @@ export default async function HomePage() {
             </div>
             <div className="col-md-6 col-xl-6">
               <div className="mil-adaptive-right">
-                <Link href="/contact" className="mil-button mil-border mil-mb-30"><span>Start a Project</span></Link>
+                <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="mil-button mil-border mil-mb-30"><span>Start a Project</span></a>
               </div>
             </div>
           </div>
@@ -419,7 +423,7 @@ export default async function HomePage() {
         title="Empowering Your Vision with"
         highlight="End-to-End Tech"
         description="Unlock new levels of innovation and efficiency with our AI and software services — trusted by global leaders to turn business challenges into reality."
-        primary={{ label: "Book a Discovery Call", href: "/contact" }}
+        primary={{ label: "Book a Discovery Call", href: CALENDLY_URL }}
         secondary={{ label: "Explore Services", href: "/services" }}
       />
 

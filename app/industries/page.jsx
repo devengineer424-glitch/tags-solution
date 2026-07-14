@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CtaBand from "@/components/CtaBand";
 import { industries } from "@/data/industries";
+import { CALENDLY_URL } from "@/data/site";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
@@ -75,7 +76,7 @@ export default function IndustriesPage() {
         title="Don't See Your"
         highlight="Industry?"
         description="We work across many more verticals. Tell us about your business and we'll show you what's possible."
-        primary={{ label: "Contact Us", href: "/contact" }}
+        primary={{ label: "Book a Discovery Call", href: CALENDLY_URL }}
       />
 
       <Footer />

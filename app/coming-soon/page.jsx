@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CALENDLY_URL } from "@/data/site";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
@@ -51,7 +52,7 @@ export default function ComingSoonPage() {
                 <input type="text" placeholder="Your email address" />
                 <button type="submit" className="mil-button mil-accent-bg">Subscribe Now</button>
               </form>
-              <Link href="/contact" className="mil-link mil-light"><span>Contact Us</span><i className="fas fa-arrow-right"></i></Link>
+              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="mil-link mil-light"><span>Book a Call</span><i className="fas fa-arrow-right"></i></a>
             </div>
           </div>
         </div>

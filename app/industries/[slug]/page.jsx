@@ -6,6 +6,7 @@ import CtaBand from "@/components/CtaBand";
 import CountUp from "@/components/CountUp";
 import JsonLd from "@/components/JsonLd";
 import { industries, getIndustry } from "@/data/industries";
+import { CALENDLY_URL } from "@/data/site";
 import { getCaseStudies } from "@/lib/api";
 import { pageMeta, breadcrumbSchema } from "@/lib/seo";
 
@@ -204,7 +205,7 @@ export default async function IndustryDetailPage({ params }) {
         title={`Build Your ${industry.title}`}
         highlight="Advantage"
         description={`Tell us about your ${industry.title.toLowerCase()} challenge and we'll show you exactly how we'd solve it.`}
-        primary={{ label: "Book a Discovery Call", href: "/contact" }}
+        primary={{ label: "Book a Discovery Call", href: CALENDLY_URL }}
         secondary={{ label: "Explore Services", href: "/services" }}
       />
 

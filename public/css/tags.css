@@ -64,6 +64,19 @@
   filter: grayscale(100%);
 }
 
+/* Trust strip ("Certified by Big Companies"): reverse the template's default so
+   partner logos show in full color, and go black & white on hover. */
+.mil-partners-frame a {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+  -webkit-transition: -webkit-filter 0.35s ease;
+  transition: filter 0.35s ease;
+}
+.mil-partners-frame a:hover {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
 /* Breadcrumbs over a dark hero: the template ships no `.mil-breadcrumbs-light`
    rule, so links default to dark and vanish. Make them light. */
 .mil-breadcrumbs-light li a {
@@ -335,4 +348,61 @@
   box-shadow: 0 0 10px rgba(245, 124, 0, 0.6);
   border-radius: 0 4px 4px 0;
   transition: width 0.1s linear;
+}
+
+/* ── Global branded loader ─────────────────────────────────────────────
+   TAG Solutions loading state: pulsing brand mark + orange indeterminate
+   bar. Rendered by app/loading.jsx during route transitions, and reusable
+   anywhere via <Loader fullscreen={false} />. */
+.tag-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 0;
+}
+.tag-loader--fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  padding: 0;
+  background: #ffffff;
+}
+.tag-loader__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+.tag-loader__mark {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  animation: tag-loader-pulse 1.4s ease-in-out infinite;
+}
+.tag-loader__bar {
+  width: 132px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(245, 124, 0, 0.15);
+  overflow: hidden;
+}
+.tag-loader__bar span {
+  display: block;
+  width: 40%;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #f57c00, #ff9d3c);
+  animation: tag-loader-slide 1.15s ease-in-out infinite;
+}
+@keyframes tag-loader-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(0.86); opacity: 0.5; }
+}
+@keyframes tag-loader-slide {
+  0%   { transform: translateX(-130%); }
+  100% { transform: translateX(360%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tag-loader__mark { animation: none; opacity: 1; }
+  .tag-loader__bar span { animation: tag-loader-slide 2.4s linear infinite; }
 }
