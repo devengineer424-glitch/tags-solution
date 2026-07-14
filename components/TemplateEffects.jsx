@@ -46,6 +46,9 @@ const SLIDERS = [
       slidesPerView: 1,
       spaceBetween: 30,
       speed: 800,
+      loop: true,
+      // Auto-scroll right-to-left so visitors see there are more stories.
+      autoplay: { delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true },
       navigation: { prevEl: ".mil-works-prev", nextEl: ".mil-works-next" },
       breakpoints: { 768: { slidesPerView: 2 } },
     },
@@ -56,6 +59,9 @@ const SLIDERS = [
       spaceBetween: 30,
       speed: 800,
       slidesPerView: 1,
+      loop: true,
+      // Auto-scroll right-to-left so visitors see there are more posts.
+      autoplay: { delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: true },
       navigation: { prevEl: ".mil-blog-prev", nextEl: ".mil-blog-next" },
       breakpoints: {
         768: { slidesPerView: 2 },

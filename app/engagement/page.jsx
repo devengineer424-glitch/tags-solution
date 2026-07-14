@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CtaBand from "@/components/CtaBand";
 import CountUp from "@/components/CountUp";
-import { models, factorStats, technologies, comparison, questions, faqGroups } from "@/data/engagement";
+import { models, modelArt, factorStats, technologies, comparison, questions, faqGroups } from "@/data/engagement";
 import { CALENDLY_URL } from "@/data/site";
 import { pageMeta } from "@/lib/seo";
 
@@ -79,6 +79,7 @@ export default function Page() {
                   {model.featured && (
                     <span style={{ position: "absolute", top: "-14px", left: "50%", transform: "translateX(-50%)", background: "#f57c00", color: "#121820", fontSize: "12px", fontWeight: 700, letterSpacing: "0.04em", textTransform: "uppercase", padding: "6px 18px", borderRadius: "20px", whiteSpace: "nowrap", boxShadow: "0 6px 16px rgba(245,124,0,.35)" }}>Most Popular</span>
                   )}
+                  <img src={modelArt[model.key]} alt={`How ${model.title} works`} loading="lazy" style={{ width: "100%", height: "auto", marginBottom: "24px", borderRadius: "10px" }} />
                   <p className="mil-text-sm mil-mb-15">{model.price}</p>
                   <h4 className="mil-mb-15">{model.title}</h4>
                   <h6 className="mil-accent mil-mb-30">{model.tagline}</h6>

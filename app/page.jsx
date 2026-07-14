@@ -8,7 +8,7 @@ import { services } from "@/data/services";
 import { industries } from "@/data/industries";
 import { testimonials } from "@/data/testimonials";
 import { getCaseStudies, getBlogs } from "@/lib/api";
-import { models as engagementModels } from "@/data/engagement";
+import { models as engagementModels, modelArt } from "@/data/engagement";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
@@ -254,6 +254,7 @@ export default async function HomePage() {
                   {m.featured && (
                     <span style={{ position: "absolute", top: "-13px", left: "50%", transform: "translateX(-50%)", background: "#f57c00", color: "#121820", fontSize: "11px", fontWeight: 700, letterSpacing: "0.04em", textTransform: "uppercase", padding: "6px 16px", borderRadius: "20px", whiteSpace: "nowrap", boxShadow: "0 6px 16px rgba(245,124,0,.35)" }}>Most Popular</span>
                   )}
+                  <img src={modelArt[m.key]} alt={`How ${m.title} works`} loading="lazy" style={{ width: "100%", height: "auto", marginBottom: "22px", borderRadius: "10px" }} />
                   <span className="mil-accent" style={{ fontFamily: "Syne, sans-serif", fontWeight: 700, fontSize: "22px", marginBottom: "14px" }}>{String(i + 1).padStart(2, "0")}</span>
                   <h4 className="mil-mb-15">{m.title}</h4>
                   <h6 className="mil-accent mil-mb-15">{m.tagline}</h6>

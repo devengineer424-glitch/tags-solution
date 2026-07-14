@@ -68,6 +68,14 @@ export const models = [
   },
 ];
 
+// Animated SVG that visually explains how each model works.
+// Used on both the home page teaser and the /engagement cards.
+export const modelArt = {
+  outsourcing: "/img/engagement/outsourcing.svg",
+  dedicated: "/img/engagement/dedicated.svg",
+  augmentation: "/img/engagement/augmentation.svg",
+};
+
 export const factorStats = [
   { value: "4+", label: "Years building custom solutions and applications" },
   { value: "215+", label: "Projects delivered across industries" },
