@@ -35,6 +35,7 @@ export default async function HomePage() {
     lineHeight: 1.6,
     height: "4.8em",
     marginBottom: 0,
+    color: "#121820",
   };
   // Clamp testimonial quotes to a fixed 5-line block so every review card is
   // the same height regardless of quote length.
@@ -45,6 +46,7 @@ export default async function HomePage() {
     overflow: "hidden",
     lineHeight: 1.7,
     height: "8.5em",
+    color: "#121820",
   };
 
   return (
@@ -135,6 +137,48 @@ export default async function HomePage() {
 
       <div className="container"><div className="mil-divider"></div></div>
 
+      {/* engagement models */}
+      <section className="mil-p-120-90">
+        <div className="mil-deco" style={{ top: 0, left: "20%" }}></div>
+        <div className="container">
+          <div className="row align-items-center mil-mb-60">
+            <div className="col-lg-8">
+              <span className="mil-suptitle mil-suptitle-2 mil-mb-30">How We Work</span>
+              <h2 className="mil-mb-0">Engagement Models That <span className="mil-accent">Fit You</span></h2>
+            </div>
+            <div className="col-lg-4">
+              <div className="mil-adaptive-right">
+                <Link href="/engagement" className="mil-link"><span>Compare All Models</span><i className="fas fa-arrow-right"></i></Link>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            {engagementModels.map((m, i) => (
+              <div className="col-lg-4 mil-mb-30" key={m.key}>
+                <Link
+                  href="/engagement"
+                  className="mil-svc-card"
+                  style={{ display: "flex", flexDirection: "column", height: "100%", padding: "40px 34px", background: "#fff", borderRadius: "14px", border: m.featured ? "2px solid #f57c00" : "1px solid rgba(18,24,32,.08)", position: "relative" }}
+                >
+                  {m.featured && (
+                    <span style={{ position: "absolute", top: "-13px", left: "50%", transform: "translateX(-50%)", background: "#f57c00", color: "#121820", fontSize: "11px", fontWeight: 700, letterSpacing: "0.04em", textTransform: "uppercase", padding: "6px 16px", borderRadius: "20px", whiteSpace: "nowrap", boxShadow: "0 6px 16px rgba(245,124,0,.35)" }}>Most Popular</span>
+                  )}
+                  <img src={modelArt[m.key]} alt={`How ${m.title} works`} loading="lazy" style={{ width: "100%", height: "auto", marginBottom: "22px", borderRadius: "10px" }} />
+                  <span className="mil-accent" style={{ fontFamily: "Syne, sans-serif", fontWeight: 700, fontSize: "22px", marginBottom: "14px" }}>{String(i + 1).padStart(2, "0")}</span>
+                  <h4 className="mil-mb-15">{m.title}</h4>
+                  <h6 className="mil-accent mil-mb-15">{m.tagline}</h6>
+                  <p className="mil-mb-30" style={{ flexGrow: 1, display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden", color: "#121820" }}>{m.description}</p>
+                  <span className="mil-link"><span>Learn More</span><i className="fas fa-arrow-right"></i></span>
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* engagement models end */}
+
+      <div className="container"><div className="mil-divider"></div></div>
+
       {/* industries */}
       <section className="mil-p-120-90">
         <div className="container">
@@ -148,7 +192,7 @@ export default async function HomePage() {
                     <span aria-hidden="true">{ind.icon}</span>
                   </div>
                   <h5 className="mil-mb-15">{ind.title}</h5>
-                  <p>{ind.excerpt}</p>
+                  <p style={{ color: "#121820" }}>{ind.excerpt}</p>
                 </Link>
               </div>
             ))}
@@ -227,46 +271,6 @@ export default async function HomePage() {
         </div>
       </section>
       {/* stats band end */}
-
-      {/* engagement models */}
-      <section className="mil-p-120-90">
-        <div className="mil-deco" style={{ top: 0, left: "20%" }}></div>
-        <div className="container">
-          <div className="row align-items-center mil-mb-60">
-            <div className="col-lg-8">
-              <span className="mil-suptitle mil-suptitle-2 mil-mb-30">How We Work</span>
-              <h2 className="mil-mb-0">Engagement Models That <span className="mil-accent">Fit You</span></h2>
-            </div>
-            <div className="col-lg-4">
-              <div className="mil-adaptive-right">
-                <Link href="/engagement" className="mil-link"><span>Compare All Models</span><i className="fas fa-arrow-right"></i></Link>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            {engagementModels.map((m, i) => (
-              <div className="col-lg-4 mil-mb-30" key={m.key}>
-                <Link
-                  href="/engagement"
-                  className="mil-svc-card"
-                  style={{ display: "flex", flexDirection: "column", height: "100%", padding: "40px 34px", background: "#fff", borderRadius: "14px", border: m.featured ? "2px solid #f57c00" : "1px solid rgba(18,24,32,.08)", position: "relative" }}
-                >
-                  {m.featured && (
-                    <span style={{ position: "absolute", top: "-13px", left: "50%", transform: "translateX(-50%)", background: "#f57c00", color: "#121820", fontSize: "11px", fontWeight: 700, letterSpacing: "0.04em", textTransform: "uppercase", padding: "6px 16px", borderRadius: "20px", whiteSpace: "nowrap", boxShadow: "0 6px 16px rgba(245,124,0,.35)" }}>Most Popular</span>
-                  )}
-                  <img src={modelArt[m.key]} alt={`How ${m.title} works`} loading="lazy" style={{ width: "100%", height: "auto", marginBottom: "22px", borderRadius: "10px" }} />
-                  <span className="mil-accent" style={{ fontFamily: "Syne, sans-serif", fontWeight: 700, fontSize: "22px", marginBottom: "14px" }}>{String(i + 1).padStart(2, "0")}</span>
-                  <h4 className="mil-mb-15">{m.title}</h4>
-                  <h6 className="mil-accent mil-mb-15">{m.tagline}</h6>
-                  <p className="mil-mb-30" style={{ flexGrow: 1, display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{m.description}</p>
-                  <span className="mil-link"><span>Learn More</span><i className="fas fa-arrow-right"></i></span>
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      {/* engagement models end */}
 
       {/* portfolio / success stories */}
       <section className="mil-works mil-p-120-90">
@@ -357,7 +361,7 @@ export default async function HomePage() {
                         <h6>by: <span className="mil-accent">{b.author}</span></h6>
                       </div>
                       <div className="mil-card-text">
-                        <p>{b.excerpt}</p>
+                        <p style={{ color: "#121820" }}>{b.excerpt}</p>
                       </div>
                     </div>
                   </Link>

@@ -20,7 +20,7 @@ export default function Header({ transparent = false, fluid = false }) {
           <div className="mil-navigation">
             <nav>
               <ul>
-                <li><Link href="/about">About Us</Link></li>
+                <li><Link href="/engagement">Engagement Models</Link></li>
                 <li className="mil-has-children mil-mega">
                   <Link href="/services">Services</Link>
                   <ul>
@@ -52,11 +52,11 @@ export default function Header({ transparent = false, fluid = false }) {
                   </ul>
                 </li>
                 <li><Link href="/success-stories">Success Stories</Link></li>
-                <li><Link href="/engagement">Engagement Models</Link></li>
                 <li><Link href="/careers">Careers</Link></li>
                 <li className="mil-has-children">
                   <a href="#">Company</a>
                   <ul>
+                    <li><Link href="/about">About Us</Link></li>
                     <li><Link href="/industries">Industries</Link></li>
                     <li><Link href="/blog">Blog</Link></li>
                     <li><Link href="/sled">U.S. SLED Partner</Link></li>

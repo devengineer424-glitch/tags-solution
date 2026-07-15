@@ -19,12 +19,26 @@
 /* Transparent state (over dark hero) → show light logo, hide boxed one. */
 .mil-top-panel-transparent .mil-logo-tags .mil-logo-light { display: block; }
 .mil-top-panel-transparent .mil-logo-tags .mil-logo-dark { display: none; }
-/* At <=1200px the template forces the "transparent" header to a solid white
-   background (see style.css @media), so the white logo would be invisible.
-   Show the boxed dark logo there instead, matching the template's own swap. */
+/* Immersive mobile hero: the template forces the "transparent" header to a
+   solid white background at <=1200px (see style.css @media), which stacks a
+   white header box on top of the dark hero and then the white trust strip below
+   — a boxy white/dark/white sandwich on first view. Instead, keep the header
+   genuinely transparent over the hero (light logo + white burger) so the hero
+   reads as one full-bleed block. The scroll handler removes .mil-top-panel-
+   transparent past 220px, at which point the header falls back to solid white
+   with the dark logo/burger (the base rules below), so the menu stays legible. */
 @media screen and (max-width: 1200px) {
-  .mil-top-panel-transparent .mil-logo-tags .mil-logo-light { display: none; }
-  .mil-top-panel-transparent .mil-logo-tags .mil-logo-dark { display: block; }
+  .mil-top-panel.mil-top-panel-transparent {
+    background-color: transparent !important;
+    border-bottom-color: transparent !important;
+  }
+  .mil-top-panel-transparent .mil-logo-tags .mil-logo-light { display: block; }
+  .mil-top-panel-transparent .mil-logo-tags .mil-logo-dark { display: none; }
+  .mil-top-panel.mil-top-panel-transparent .mil-menu-btn span,
+  .mil-top-panel.mil-top-panel-transparent .mil-menu-btn span:before,
+  .mil-top-panel.mil-top-panel-transparent .mil-menu-btn span:after {
+    background: #fff;
+  }
 }
 
 /* Contact form on the dark gradient panel: make placeholders legible and give
@@ -202,6 +216,12 @@
   .mil-banner .mil-banner-content p {
     font-size: 15px !important;
     line-height: 1.6 !important;
+    /* Trim the hero blurb to 3 lines on phones so it stays a hook, not a
+       paragraph — keeps eyebrow → headline → copy → CTAs in the first view. */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }
 @media screen and (max-width: 480px) {
