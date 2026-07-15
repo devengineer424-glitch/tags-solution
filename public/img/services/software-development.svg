@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 240" role="img">
+
+  <style>
+    .spin  { transform-box: fill-box; transform-origin: center; animation: spin 6s linear infinite; }
+    .spinR { transform-box: fill-box; transform-origin: center; animation: spin 5s linear infinite reverse; }
+    .flow  { animation: flow 1.6s linear infinite; }
+    .pulse { animation: pulse 2.4s ease-in-out infinite; }
+    .breathe { transform-box: fill-box; transform-origin: center; animation: breathe 3.4s ease-in-out infinite; }
+    .ping  { transform-box: fill-box; transform-origin: center; animation: ping 2.6s ease-out infinite; }
+    .blink { animation: blink 2.2s ease-in-out infinite; }
+    @keyframes spin    { to { transform: rotate(360deg); } }
+    @keyframes flow    { to { stroke-dashoffset: -32; } }
+    @keyframes pulse   { 0%,100% { opacity: .35; } 50% { opacity: 1; } }
+    @keyframes breathe { 0%,100% { transform: scale(1); } 50% { transform: scale(1.04); } }
+    @keyframes ping    { 0% { transform: scale(.5); opacity: .6; } 100% { transform: scale(2.2); opacity: 0; } }
+    @keyframes blink   { 0%,100% { opacity: .2; } 50% { opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) {
+      .spin,.spinR,.flow,.pulse,.breathe,.ping,.blink { animation: none; }
+    }
+  </style>
+  <rect x="0" y="0" width="440" height="240" fill="#f6f8fa"/>
+
+  <text x="120" y="42" text-anchor="middle" font-family="'Sora','Segoe UI',system-ui,sans-serif" font-size="11" font-weight="700" letter-spacing="1" fill="#f57c00">TAGS ENGINEERS</text>
+  <text x="358" y="42" text-anchor="middle" font-family="'Sora','Segoe UI',system-ui,sans-serif" font-size="11" font-weight="700" letter-spacing="1" fill="#66707d">SHIPPED</text>
+
+  <!-- code editor window -->
+  <g>
+    <rect x="36" y="60" width="168" height="120" rx="10" fill="#fff" stroke="#e7ebf0" stroke-width="1.5"/>
+    <rect x="36" y="60" width="168" height="22" rx="10" fill="#eef1f5"/>
+    <rect x="36" y="72" width="168" height="10" fill="#eef1f5"/>
+    <circle cx="50" cy="71" r="3" fill="#f57c00"/><circle cx="60" cy="71" r="3" fill="#aab3bf"/><circle cx="70" cy="71" r="3" fill="#d6dce3"/>
+    <rect x="50" y="96"  width="70"  height="6" rx="3" fill="#c7d0da"/>
+    <rect x="50" y="110" width="110" height="6" rx="3" fill="#f57c00" opacity="0.75"/>
+    <rect x="64" y="124" width="86"  height="6" rx="3" fill="#c7d0da" class="blink"/>
+    <rect x="64" y="138" width="60"  height="6" rx="3" fill="#c7d0da"/>
+    <rect x="50" y="152" width="94"  height="6" rx="3" fill="#c7d0da"/>
+    <rect x="150" y="152" width="8" height="8" rx="1" fill="#f57c00" class="blink"/>
+  </g>
+
+  <!-- spinning gear = build -->
+  <g>
+    <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 258 96" to="360 258 96" dur="6s" repeatCount="indefinite"/>
+    <rect x="255.6" y="79.6" width="4.8" height="4.8" rx="1" fill="#f57c00" transform="rotate(0 258 82)"/>
+    <rect x="269.7" y="85.5" width="4.8" height="4.8" rx="1" fill="#f57c00" transform="rotate(45 272.1 87.9)"/>
+    <rect x="275.6" y="93.6" width="4.8" height="4.8" rx="1" fill="#f57c00" transform="rotate(90 278 96)"/>
+    <rect x="269.7" y="107.7" width="4.8" height="4.8" rx="1" fill="#f57c00" transform="rotate(135 272.1 110.1)"/>
+    <rect x="255.6" y="113.6" width="4.8" height="4.8" rx="1" fill="#f57c00" transform="rotate(180 258 116)"/>
+    <rect x="241.5" y="107.7" width="4.8" height="4.8" rx="1" fill="#f57c00" transform="rotate(225 243.9 110.1)"/>
+    <rect x="235.6" y="93.6" width="4.8" height="4.8" rx="1" fill="#f57c00" transform="rotate(270 238 96)"/>
+    <rect x="241.5" y="85.5" width="4.8" height="4.8" rx="1" fill="#f57c00" transform="rotate(315 243.9 87.9)"/>
+    <circle cx="258" cy="96" r="15" fill="none" stroke="#f57c00" stroke-width="3"/>
+    <circle cx="258" cy="96" r="7" fill="none" stroke="#f57c00" stroke-width="1.6" stroke-opacity="0.5"/>
+  </g>
+
+  <!-- pipeline track with commit dots -->
+  <path class="flow" d="M206 130 H322" fill="none" stroke="#d6dce3" stroke-width="1.6" stroke-dasharray="4 5"/>
+  <g opacity="0"><circle r="4.2" fill="#f57c00"/>
+    <animateMotion dur="2.4s" begin="0s" repeatCount="indefinite" path="M206 130 H322" calcMode="linear"/>
+    <animate attributeName="opacity" dur="2.4s" begin="0s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.12;0.8;1"/></g>
+  <g opacity="0"><circle r="3.4" fill="#2b3440"/>
+    <animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" path="M206 130 H322" calcMode="linear"/>
+    <animate attributeName="opacity" dur="2.4s" begin="1.2s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.12;0.8;1"/></g>
+
+  <!-- shipped package -->
+  <g transform="translate(358,128)"><g class="breathe">
+    <rect x="-26" y="-24" width="52" height="48" rx="6" fill="#fff" stroke="#f57c00" stroke-width="2"/>
+    <path d="M-26 -8 h52" stroke="#f57c00" stroke-width="1.4" opacity="0.5"/>
+    <rect x="-6" y="-24" width="12" height="16" fill="#f57c00" opacity="0.85"/>
+    <path class="blink" d="M-12 6 l7 7 14 -16" fill="none" stroke="#f57c00" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g></g>
+
+  <text x="220" y="222" text-anchor="middle" font-family="'Sora','Segoe UI',system-ui,sans-serif" font-size="13" font-weight="600" fill="#66707d">Custom software, engineered to scale</text>
+</svg>

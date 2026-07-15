@@ -7,6 +7,7 @@ export const services = [
     title: "Software Development",
     shortTitle: "Software Development",
     image: "/tags/service-software.jpg",
+    art: "/img/services/software-development.svg",
     tags: ["Product Design", "System Architecture", "Quality Assurance"],
     description:
       "We develop custom software solutions designed to solve real business challenges. Our team focuses on performance, security, and scalability to ensure long-term success.",
@@ -52,6 +53,7 @@ export const services = [
     title: "Web Development",
     shortTitle: "Web Development",
     image: "/tags/service-web.jpg",
+    art: "/img/services/web-development.svg",
     tags: ["Frontend", "Backend", "Full Stack"],
     description: "Crafting immersive, high-speed digital experiences that drive user engagement and conversions.",
     heroDescription:
@@ -91,6 +93,7 @@ export const services = [
     title: "Mobile App Development",
     shortTitle: "Mobile Apps",
     image: "/tags/service-mobile.jpg",
+    art: "/img/services/mobile-app-development.svg",
     tags: ["iOS", "Android", "Cross Platform"],
     description: "Building intuitive, high-impact mobile solutions optimized for modern Android and iOS platforms.",
     heroDescription:
@@ -130,6 +133,7 @@ export const services = [
     title: "Digital Marketing",
     shortTitle: "Digital Marketing",
     image: "/tags/service-marketing.jpg",
+    art: "/img/services/digital-marketing.svg",
     tags: ["SEO", "PPC", "Social Media"],
     description: "Accelerating brand growth with data-backed strategies and precise audience targeting.",
     heroDescription:
@@ -169,6 +173,7 @@ export const services = [
     title: "Data and AI",
     shortTitle: "Data & AI",
     image: "/tags/service-ai.jpg",
+    art: "/img/services/data-and-ai.svg",
     tags: ["Machine Learning", "Analytics", "Automation"],
     description: "Unlocking intelligent growth through predictive AI models and actionable data insights.",
     heroDescription:
@@ -208,6 +213,7 @@ export const services = [
     title: "Enterprise Softwares",
     shortTitle: "Enterprise",
     image: "/tags/service-enterprise.jpg",
+    art: "/img/services/enterprise-softwares.svg",
     tags: ["ERP", "CRM", "Integration"],
     description: "Modernizing complex workflows with unified, secure, and enterprise-grade digital systems.",
     heroDescription:
@@ -247,6 +253,7 @@ export const services = [
     title: "Cloud Engineering",
     shortTitle: "Cloud Engineering",
     image: "/tags/service-cloud.jpg",
+    art: "/img/services/cloud-engineering.svg",
     tags: ["AWS", "Azure", "DevOps"],
     description: "Deploying flexible, resilient cloud architectures to keep your operations seamless and secure.",
     heroDescription:

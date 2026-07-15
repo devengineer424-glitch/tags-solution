@@ -2,6 +2,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CtaBand from "@/components/CtaBand";
+import MissionGraphic from "@/components/MissionGraphic";
 import { aboutStats } from "@/data/site";
 import { pageMeta } from "@/lib/seo";
 
@@ -64,7 +65,19 @@ export default function Page() {
 
       {/* banner */}
       <div className="mil-banner mil-top-space-0">
-        <img src="/tags/about-story.jpg" className="mil-background-image" style={{ objectPosition: "center" }} alt="TAG Solutions team" />
+        <div className="swiper-container mil-banner-slideshow">
+          <div className="swiper-wrapper">
+            {[
+              { src: "/img/hero/hero-1-global.svg", alt: "Global connected network illustration" },
+              { src: "/img/hero/hero-2-ai.svg", alt: "AI neural network illustration" },
+              { src: "/img/hero/hero-3-cloud.svg", alt: "Cloud microservices architecture illustration" },
+            ].map((img, i) => (
+              <div className="swiper-slide" key={i}>
+                <img src={img.src} className="mil-background-image" style={{ objectPosition: "center" }} data-swiper-parallax="-100" data-swiper-parallax-scale="1.1" alt={img.alt} />
+              </div>
+            ))}
+          </div>
+        </div>
         <div className="mil-overlay"></div>
         <div className="mil-banner-content">
           <div className="container">
@@ -92,11 +105,7 @@ export default function Page() {
         <div className="container">
           <div className="row justify-content-between align-items-center">
             <div className="col-lg-6 mil-mb-60">
-              <img
-                src="/tags/about-mission.jpg"
-                alt="Our mission"
-                style={{ width: "100%", height: "auto", display: "block", borderRadius: "8px" }}
-              />
+              <MissionGraphic />
             </div>
             <div className="col-lg-6 mil-mb-60">
               <span className="mil-suptitle mil-suptitle-2 mil-mb-30">Our Story &amp; Mission</span>

@@ -426,3 +426,99 @@
   .tag-loader__mark { animation: none; opacity: 1; }
   .tag-loader__bar span { animation: tag-loader-slide 2.4s linear infinite; }
 }
+
+/* ------------------------------------------------------------------ */
+/* Banner hero — mobile overlay fix                                    */
+/* On <=992px the template collapses .mil-banner to height:auto, so    */
+/* the short hero reveals the lit lower third of the space background  */
+/* image. The default flat 80% overlay isn't strong enough to keep     */
+/* that area dark, leaving a washed-out grey band under the copy.      */
+/* Anchor a dark base colour and use a bottom-weighted gradient so the */
+/* hero reads as one cohesive dark block and text stays legible.       */
+/* ------------------------------------------------------------------ */
+@media screen and (max-width: 992px) {
+  .mil-banner {
+    background-color: #0d1117;
+  }
+  .mil-banner .mil-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(18, 24, 32, 0.78) 0%,
+      rgba(18, 24, 32, 0.88) 55%,
+      rgba(13, 17, 23, 0.96) 100%
+    );
+  }
+}
+
+/* Static-image page heroes (Services, Contact, Careers, FAQ, SLED, Industries,
+   Engagement — every hero using /tags/hero-bg.png rather than the home/about
+   swiper slides) show the same washed-out grey band on DESKTOP that the rule
+   above fixes for phones: the space image's lit lower third bleeds through the
+   flat 0.8 overlay, leaving a grey strip above the white section. Apply the dark
+   base + bottom-weighted gradient at all widths so the hero reads as one
+   cohesive dark block. Swiper heroes keep their own treatment (excluded here). */
+.mil-banner:not(:has(.swiper-container)) {
+  background-color: #0d1117;
+}
+.mil-banner:not(:has(.swiper-container)) .mil-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(18, 24, 32, 0.72) 0%,
+    rgba(18, 24, 32, 0.85) 55%,
+    rgba(13, 17, 23, 0.97) 100%
+  );
+}
+
+/* About page "Our Story & Mission" growth-trajectory illustration
+   (components/MissionGraphic.jsx). All motion is CSS so it can be switched off
+   under prefers-reduced-motion: the trajectory line draws itself in, milestone
+   nodes pulse in sequence, background stars twinkle, and a glowing node climbs
+   the curve via offset-path. */
+.mil-mission-graphic {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+.mil-mission-line {
+  stroke-dasharray: 760;
+  stroke-dashoffset: 760;
+  animation: mil-mission-draw 3s ease forwards;
+}
+@keyframes mil-mission-draw {
+  to { stroke-dashoffset: 0; }
+}
+.mil-mission-node {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mil-mission-pulse 2.8s ease-in-out infinite;
+}
+@keyframes mil-mission-pulse {
+  0%, 100% { opacity: 0.35; transform: scale(0.8); }
+  50%      { opacity: 1;    transform: scale(1.25); }
+}
+.mil-mission-comet {
+  offset-rotate: 0deg;
+  animation: mil-mission-climb 6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+@keyframes mil-mission-climb {
+  0%   { offset-distance: 0%;   opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+.mil-mission-star {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mil-mission-twinkle 3.5s ease-in-out infinite;
+}
+@keyframes mil-mission-twinkle {
+  0%, 100% { opacity: 0.15; }
+  50%      { opacity: 0.7; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mil-mission-line { animation: none; stroke-dashoffset: 0; }
+  .mil-mission-node,
+  .mil-mission-star { animation: none; opacity: 0.9; }
+  .mil-mission-comet { animation: none; offset-distance: 100%; opacity: 1; }
+}
