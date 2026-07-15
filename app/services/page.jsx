@@ -92,7 +92,6 @@ export default function ServicesPage() {
                 >
                   <div className="mil-svc-img" style={{ position: "relative", overflow: "hidden", height: "220px", background: "#f6f8fa" }}>
                     <img src={s.art || s.image} alt={`How ${s.title} works`} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-                    <span style={{ position: "absolute", top: "16px", left: "16px", width: "46px", height: "46px", borderRadius: "50%", background: "#f57c00", color: "#121820", fontWeight: 700, fontFamily: "Syne, sans-serif", display: "flex", alignItems: "center", justifyContent: "center" }}>{String(i + 1).padStart(2, "0")}</span>
                   </div>
                   <div style={{ padding: "32px 30px", display: "flex", flexDirection: "column", flexGrow: 1 }}>
                     <h4 className="mil-mb-15">{s.title}</h4>

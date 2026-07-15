@@ -207,8 +207,8 @@ export default function ServiceDetailPage({ params }) {
                   className="mil-svc-card"
                   style={{ display: "flex", flexDirection: "column", height: "100%", background: "#fff", border: "1px solid rgba(18,24,32,.08)", borderRadius: "14px", overflow: "hidden" }}
                 >
-                  <div className="mil-svc-img" style={{ position: "relative", overflow: "hidden", height: "200px" }}>
-                    <img src={s.image} alt={s.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                  <div className="mil-svc-img" style={{ position: "relative", overflow: "hidden", height: "200px", background: "#f6f8fa" }}>
+                    <img src={s.art || s.image} alt={`How ${s.title} works`} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                   </div>
                   <div style={{ padding: "30px", display: "flex", flexDirection: "column", flexGrow: 1 }}>
                     <h4 className="mil-mb-15">{s.title}</h4>
