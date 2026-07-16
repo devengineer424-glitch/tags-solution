@@ -1,3 +1,14 @@
+import withSerwistInit from "@serwist/next";
+
+const withSerwist = withSerwistInit({
+  // Service worker source and output location.
+  swSrc: "app/sw.js",
+  swDest: "public/sw.js",
+  // Auto-register the service worker on the client; disabled in `next dev`.
+  register: true,
+  disable: process.env.NODE_ENV === "development",
+});
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: false,
@@ -13,4 +24,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+export default withSerwist(nextConfig);

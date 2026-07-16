@@ -6,3 +6,8 @@
 *.pem
 .env*.local
 next-env.d.ts
+
+# serwist (service worker generated at build time)
+/public/sw.js
+/public/sw.js.map
+/public/swe-worker-*.js

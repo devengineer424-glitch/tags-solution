@@ -1,6 +1,7 @@
 import TemplateEffects from "@/components/TemplateEffects";
 import ScrollProgress from "@/components/ScrollProgress";
 import CookieConsent from "@/components/CookieConsent";
+import OfflineIndicator from "@/components/OfflineIndicator";
 import JsonLd from "@/components/JsonLd";
 import { SITE_URL, organizationSchema, websiteSchema } from "@/lib/seo";
 
@@ -44,6 +45,12 @@ export const metadata = {
     ],
     apple: { url: "/tags/favicon-180.png", sizes: "180x180" },
   },
+  // iOS PWA (add-to-home-screen) support.
+  appleWebApp: {
+    capable: true,
+    title: "TAG Solutions",
+    statusBarStyle: "default",
+  },
 };
 
 export const viewport = {
@@ -73,6 +80,7 @@ export default function RootLayout({ children }) {
         <ScrollProgress />
         <TemplateEffects />
         <CookieConsent />
+        <OfflineIndicator />
       </body>
     </html>
   );
