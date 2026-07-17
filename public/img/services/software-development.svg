@@ -37,19 +37,19 @@
     <rect x="150" y="152" width="8" height="8" rx="1" fill="#f57c00" class="blink"/>
   </g>
 
-  <!-- spinning gear = build -->
+  <!-- spinning gear = build (teeth evenly placed on radius 16 around 258,96) -->
   <g>
     <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 258 96" to="360 258 96" dur="6s" repeatCount="indefinite"/>
-    <rect x="255.6" y="79.6" width="4.8" height="4.8" rx="1" fill="#f57c00" transform="rotate(0 258 82)"/>
-    <rect x="269.7" y="85.5" width="4.8" height="4.8" rx="1" fill="#f57c00" transform="rotate(45 272.1 87.9)"/>
-    <rect x="275.6" y="93.6" width="4.8" height="4.8" rx="1" fill="#f57c00" transform="rotate(90 278 96)"/>
-    <rect x="269.7" y="107.7" width="4.8" height="4.8" rx="1" fill="#f57c00" transform="rotate(135 272.1 110.1)"/>
-    <rect x="255.6" y="113.6" width="4.8" height="4.8" rx="1" fill="#f57c00" transform="rotate(180 258 116)"/>
-    <rect x="241.5" y="107.7" width="4.8" height="4.8" rx="1" fill="#f57c00" transform="rotate(225 243.9 110.1)"/>
-    <rect x="235.6" y="93.6" width="4.8" height="4.8" rx="1" fill="#f57c00" transform="rotate(270 238 96)"/>
-    <rect x="241.5" y="85.5" width="4.8" height="4.8" rx="1" fill="#f57c00" transform="rotate(315 243.9 87.9)"/>
-    <circle cx="258" cy="96" r="15" fill="none" stroke="#f57c00" stroke-width="3"/>
-    <circle cx="258" cy="96" r="7" fill="none" stroke="#f57c00" stroke-width="1.6" stroke-opacity="0.5"/>
+    <rect x="255" y="76"     width="6" height="8" rx="1.5" fill="#f57c00" transform="rotate(0 258 80)"/>
+    <rect x="266.31" y="80.69" width="6" height="8" rx="1.5" fill="#f57c00" transform="rotate(45 269.31 84.69)"/>
+    <rect x="271" y="92"     width="6" height="8" rx="1.5" fill="#f57c00" transform="rotate(90 274 96)"/>
+    <rect x="266.31" y="103.31" width="6" height="8" rx="1.5" fill="#f57c00" transform="rotate(135 269.31 107.31)"/>
+    <rect x="255" y="108"    width="6" height="8" rx="1.5" fill="#f57c00" transform="rotate(180 258 112)"/>
+    <rect x="243.69" y="103.31" width="6" height="8" rx="1.5" fill="#f57c00" transform="rotate(225 246.69 107.31)"/>
+    <rect x="239" y="92"     width="6" height="8" rx="1.5" fill="#f57c00" transform="rotate(270 242 96)"/>
+    <rect x="243.69" y="80.69" width="6" height="8" rx="1.5" fill="#f57c00" transform="rotate(315 246.69 84.69)"/>
+    <circle cx="258" cy="96" r="14" fill="none" stroke="#f57c00" stroke-width="3"/>
+    <circle cx="258" cy="96" r="6" fill="none" stroke="#f57c00" stroke-width="1.6" stroke-opacity="0.5"/>
   </g>
 
   <!-- pipeline track with commit dots -->

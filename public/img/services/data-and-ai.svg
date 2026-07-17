@@ -22,7 +22,7 @@
 
   <text x="66"  y="40" text-anchor="middle" font-family="'Sora','Segoe UI',system-ui,sans-serif" font-size="11" font-weight="700" letter-spacing="1" fill="#66707d">DATA</text>
   <text x="220" y="40" text-anchor="middle" font-family="'Sora','Segoe UI',system-ui,sans-serif" font-size="11" font-weight="700" letter-spacing="1" fill="#f57c00">MODEL</text>
-  <text x="378" y="40" text-anchor="middle" font-family="'Sora','Segoe UI',system-ui,sans-serif" font-size="11" font-weight="700" letter-spacing="1" fill="#66707d">DECISIONS</text>
+  <text x="358" y="40" text-anchor="middle" font-family="'Sora','Segoe UI',system-ui,sans-serif" font-size="11" font-weight="700" letter-spacing="1" fill="#66707d">DECISIONS</text>
 
   <!-- connection lines input -> hidden -->
   <g stroke="#d6dce3" stroke-width="1.2">
@@ -32,7 +32,7 @@
   </g>
   <!-- hidden -> output -->
   <g stroke="#f57c00" stroke-opacity="0.35" stroke-width="1.2">
-    <line x1="150" y1="80"  x2="300" y2="128"/><line x1="150" y1="120" x2="300" y2="128"/><line x1="150" y1="160" x2="300" y2="128"/>
+    <line x1="150" y1="80"  x2="358" y2="128"/><line x1="150" y1="120" x2="358" y2="128"/><line x1="150" y1="160" x2="358" y2="128"/>
   </g>
 
   <!-- input nodes -->
@@ -58,17 +58,17 @@
   </g>
 
   <!-- output node -->
-  <g transform="translate(300,128)"><g class="breathe">
+  <g transform="translate(358,128)"><g class="breathe">
     <rect x="-20" y="-18" width="40" height="36" rx="8" fill="#fff" stroke="#f57c00" stroke-width="2"/>
     <path class="blink" d="M-9 0 l6 7 12 -14" fill="none" stroke="#f57c00" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
   </g></g>
 
   <!-- data particles flowing left to right -->
   <g opacity="0"><circle r="3.2" fill="#f57c00"/>
-    <animateMotion dur="2s" begin="0s" repeatCount="indefinite" path="M66 88 L150 120 L300 128" calcMode="linear"/>
+    <animateMotion dur="2s" begin="0s" repeatCount="indefinite" path="M66 88 L150 120 L358 128" calcMode="linear"/>
     <animate attributeName="opacity" dur="2s" begin="0s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.1;0.85;1"/></g>
   <g opacity="0"><circle r="3.2" fill="#f57c00"/>
-    <animateMotion dur="2s" begin="1s" repeatCount="indefinite" path="M66 168 L150 80 L300 128" calcMode="linear"/>
+    <animateMotion dur="2s" begin="1s" repeatCount="indefinite" path="M66 168 L150 80 L358 128" calcMode="linear"/>
     <animate attributeName="opacity" dur="2s" begin="1s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.1;0.85;1"/></g>
 
   <text x="220" y="222" text-anchor="middle" font-family="'Sora','Segoe UI',system-ui,sans-serif" font-size="13" font-weight="600" fill="#66707d">Data &amp; AI that decide</text>

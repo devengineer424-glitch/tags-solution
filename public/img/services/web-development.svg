@@ -53,18 +53,18 @@
     <animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" path="M300 150 Q 262 176 220 156" calcMode="linear"/>
     <animate attributeName="opacity" dur="2.4s" begin="1.2s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.12;0.8;1"/></g>
 
-  <!-- API gear -->
+  <!-- API gear (teeth evenly placed on radius 16 around 262,128) -->
   <g>
     <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 262 128" to="360 262 128" dur="6s" repeatCount="indefinite"/>
-    <rect x="259.6" y="111.6" width="4.6" height="4.6" rx="1" fill="#f57c00" transform="rotate(0 262 114)"/>
-    <rect x="273.4" y="117.4" width="4.6" height="4.6" rx="1" fill="#f57c00" transform="rotate(45 275.7 119.7)"/>
-    <rect x="279.4" y="125.7" width="4.6" height="4.6" rx="1" fill="#f57c00" transform="rotate(90 281.7 128)"/>
-    <rect x="273.4" y="138.4" width="4.6" height="4.6" rx="1" fill="#f57c00" transform="rotate(135 275.7 140.7)"/>
-    <rect x="259.6" y="143.6" width="4.6" height="4.6" rx="1" fill="#f57c00" transform="rotate(180 262 146)"/>
-    <rect x="245.7" y="138.4" width="4.6" height="4.6" rx="1" fill="#f57c00" transform="rotate(225 248 140.7)"/>
-    <rect x="242.4" y="125.7" width="4.6" height="4.6" rx="1" fill="#f57c00" transform="rotate(270 244.7 128)"/>
-    <rect x="245.7" y="117.4" width="4.6" height="4.6" rx="1" fill="#f57c00" transform="rotate(315 248 119.7)"/>
-    <circle cx="262" cy="128" r="13" fill="none" stroke="#f57c00" stroke-width="2.6"/>
+    <rect x="259" y="108"     width="6" height="8" rx="1.5" fill="#f57c00" transform="rotate(0 262 112)"/>
+    <rect x="270.31" y="112.69" width="6" height="8" rx="1.5" fill="#f57c00" transform="rotate(45 273.31 116.69)"/>
+    <rect x="275" y="124"     width="6" height="8" rx="1.5" fill="#f57c00" transform="rotate(90 278 128)"/>
+    <rect x="270.31" y="135.31" width="6" height="8" rx="1.5" fill="#f57c00" transform="rotate(135 273.31 139.31)"/>
+    <rect x="259" y="140"     width="6" height="8" rx="1.5" fill="#f57c00" transform="rotate(180 262 144)"/>
+    <rect x="247.69" y="135.31" width="6" height="8" rx="1.5" fill="#f57c00" transform="rotate(225 250.69 139.31)"/>
+    <rect x="243" y="124"     width="6" height="8" rx="1.5" fill="#f57c00" transform="rotate(270 246 128)"/>
+    <rect x="247.69" y="112.69" width="6" height="8" rx="1.5" fill="#f57c00" transform="rotate(315 250.69 116.69)"/>
+    <circle cx="262" cy="128" r="14" fill="none" stroke="#f57c00" stroke-width="2.6"/>
     <circle cx="262" cy="128" r="6" fill="none" stroke="#f57c00" stroke-width="1.4" stroke-opacity="0.5"/>
   </g>
 
