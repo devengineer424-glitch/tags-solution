@@ -522,3 +522,157 @@
   .mil-mission-star { animation: none; opacity: 0.9; }
   .mil-mission-comet { animation: none; offset-distance: 100%; opacity: 1; }
 }
+
+/* ============================================================
+   Success-story (case study) journey layout
+   Sticky step tracker + balanced, engaging content blocks.
+   All case-study sections are light-themed (.mil-deep-bg is a
+   very light gray tint, not dark) so cards stay dark-on-light.
+   ============================================================ */
+:root { --cs-a: #f57c00; --cs-a-rgb: 245, 124, 0; --cs-ink: #121820; }
+
+/* --- Progress tracker: vertical "journey" rail pinned to the right on desktop,
+   compact top bar on mobile. Fixed (not sticky) — .mil-wrapper{overflow:hidden}
+   disables position:sticky. The <nav> itself is a bare container whose display
+   is toggled by JS while the case-study body is in view; the rail (ol) and the
+   mobile bar (.cs-track-m) are each independently fixed-positioned. --- */
+.cs-track { display: none; }
+
+/* Vertical rail (desktop) */
+.cs-track ol {
+  list-style: none; margin: 0; padding: 16px 18px;
+  position: fixed; right: 18px; top: 50%; transform: translateY(-50%); z-index: 30;
+  display: flex; flex-direction: column;
+  background: rgba(255, 255, 255, .72);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(18, 24, 32, .08); border-radius: 18px;
+  box-shadow: 0 14px 44px rgba(18, 24, 32, .12);
+}
+.cs-track li { position: relative; padding-left: 26px; }
+.cs-track li:not(:last-child) { padding-bottom: 24px; }
+/* connecting line between dots */
+.cs-track li:not(:last-child)::before {
+  content: ""; position: absolute; left: 5px; top: 17px; bottom: -7px; width: 2px;
+  background: rgba(18, 24, 32, .14);
+}
+.cs-track li.is-done:not(:last-child)::before { background: var(--cs-a); }
+/* dot */
+.cs-track li::after {
+  content: ""; position: absolute; left: 0; top: 3px; width: 12px; height: 12px;
+  border-radius: 50%; border: 2px solid rgba(18, 24, 32, .25); background: #fff; transition: .2s;
+}
+.cs-track li.is-done::after { border-color: var(--cs-a); background: var(--cs-a); }
+.cs-track li.is-active::after { border-color: var(--cs-a); background: var(--cs-a); box-shadow: 0 0 0 4px rgba(var(--cs-a-rgb), .18); }
+.cs-track button {
+  background: none; border: 0; cursor: pointer; padding: 0; font-family: inherit; text-align: left;
+  display: flex; flex-direction: column; gap: 1px; align-items: flex-start;
+}
+.cs-track .cs-num { font-size: 10px; font-weight: 700; letter-spacing: .12em; color: rgba(18, 24, 32, .32); }
+.cs-track .cs-lab { font-size: 13px; font-weight: 600; color: rgba(18, 24, 32, .5); white-space: nowrap; line-height: 1.2; transition: color .2s; }
+.cs-track li.is-done .cs-num, .cs-track li.is-active .cs-num { color: var(--cs-a); }
+.cs-track li.is-active .cs-lab, .cs-track button:hover .cs-lab { color: var(--cs-ink); }
+
+/* Compact top bar (mobile / narrow) */
+.cs-track-m { display: none; }
+@media (max-width: 1199px) {
+  .cs-track ol { display: none; }
+  .cs-track-m {
+    display: flex; align-items: center; gap: 12px;
+    position: fixed; top: var(--cs-hh, 100px); left: 0; right: 0; z-index: 30;
+    padding: 12px 20px; background: rgba(255, 255, 255, .92);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(18, 24, 32, .08);
+  }
+  .cs-mnum { font-size: 11px; font-weight: 700; letter-spacing: .1em; color: var(--cs-a); white-space: nowrap; }
+  .cs-mlab { font-size: 14px; font-weight: 700; color: var(--cs-ink); white-space: nowrap; max-width: 45%; overflow: hidden; text-overflow: ellipsis; }
+  .cs-mbar { flex: 1; height: 4px; border-radius: 2px; background: rgba(18, 24, 32, .12); overflow: hidden; }
+  .cs-mbar i { display: block; height: 100%; background: var(--cs-a); border-radius: 2px; transition: width .35s; }
+}
+
+/* --- Section eyebrow: numbered chapter kicker --- */
+.cs-eyebrow { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+.cs-eyebrow .cs-idx {
+  font-size: 12px; font-weight: 800; letter-spacing: .1em; color: var(--cs-a);
+  border: 1.5px solid rgba(var(--cs-a-rgb), .4); border-radius: 40px; padding: 5px 11px; line-height: 1;
+}
+.cs-eyebrow .cs-kick { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(18, 24, 32, .55); }
+
+/* --- Auto-filling card grid (never orphans a lonely tile with dead space) --- */
+.cs-cards { display: grid; gap: 24px; grid-template-columns: repeat(auto-fill, minmax(255px, 1fr)); }
+.cs-cards-wide { grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); }
+.cs-card {
+  border: 1px solid rgba(18, 24, 32, .1); border-radius: 16px; padding: 28px; background: #fff; height: 100%;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+}
+.cs-card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(18, 24, 32, .08); border-color: rgba(var(--cs-a-rgb), .35); }
+.cs-card .cs-cnum { font-size: 13px; font-weight: 800; color: var(--cs-a); letter-spacing: .06em; margin-bottom: 14px; display: block; }
+.cs-card .cs-cic { font-size: 30px; line-height: 1; margin-bottom: 16px; display: block; }
+.cs-card h5 { margin: 0 0 10px; color: var(--cs-ink); }
+.cs-card p { margin: 0; color: rgba(18, 24, 32, .62); font-size: 15px; line-height: 1.6; }
+
+/* --- Stat / outcome cards --- */
+.cs-stat { display: flex; gap: 16px; align-items: flex-start; border: 1px solid rgba(18, 24, 32, .1); border-radius: 16px; padding: 24px; background: #fff; height: 100%; }
+.cs-stat .cs-sic { font-size: 24px; color: var(--cs-a); line-height: 1.2; flex: 0 0 auto; }
+.cs-stat p { margin: 0; color: rgba(18, 24, 32, .75); font-size: 15px; line-height: 1.55; }
+
+/* --- Quote block --- */
+.cs-quote { border-left: 3px solid var(--cs-a); padding: 4px 0 4px 30px; max-width: 840px; margin: 8px 0; }
+.cs-quote p { font-size: 22px; line-height: 1.5; font-style: italic; color: var(--cs-ink); margin: 0 0 14px; }
+.cs-quote h6 { margin: 0; color: var(--cs-a); }
+
+/* --- Comparison table --- */
+.cs-table-wrap { overflow-x: auto; border: 1px solid rgba(18, 24, 32, .1); border-radius: 16px; }
+.cs-table { width: 100%; border-collapse: collapse; min-width: 560px; }
+.cs-table th { text-align: left; padding: 18px 20px; background: rgba(var(--cs-a-rgb), .06); font-weight: 700; color: var(--cs-ink); font-size: 14px; border-bottom: 1px solid rgba(18, 24, 32, .1); }
+.cs-table td { padding: 16px 20px; border-bottom: 1px solid rgba(18, 24, 32, .07); font-size: 15px; color: rgba(18, 24, 32, .8); }
+.cs-table tr:last-child td { border-bottom: 0; }
+.cs-table tbody tr:nth-child(even) { background: rgba(18, 24, 32, .02); }
+
+/* --- Screenshot gallery: contain (no crop), auto-fill (no orphan gaps) --- */
+.cs-gallery { display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+.cs-gallery-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.cs-shot { width: 100%; height: 250px; object-fit: contain; background: #f4f5f7; padding: 12px; border-radius: 12px; display: block; border: 1px solid rgba(18, 24, 32, .06); }
+.cs-shot-solo { height: auto; object-fit: cover; padding: 0; background: none; }
+.cs-imgwrap img { width: 100%; height: auto; display: block; border-radius: 14px; }
+
+/* ============================================================
+   Custom case-study pages (code-served) — shared building blocks
+   Reuse the journey tokens (--cs-a, --cs-ink) and .cs-track above.
+   ============================================================ */
+
+/* Big before/after stat band */
+.cs-statband { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+.cs-bigstat { border: 1px solid rgba(18, 24, 32, .1); border-radius: 18px; padding: 32px; background: #fff; }
+.cs-bigstat .cs-big { font-size: 44px; font-weight: 800; color: var(--cs-a); line-height: 1; letter-spacing: -.02em; }
+.cs-bigstat .cs-biglabel { margin: 14px 0 0; color: rgba(18, 24, 32, .62); font-size: 15px; line-height: 1.55; }
+.cs-bigstat .cs-bigsub { margin: 8px 0 0; font-size: 12.5px; color: rgba(18, 24, 32, .42); }
+
+/* Callout / honest-note box */
+.cs-callout { border: 1px solid rgba(var(--cs-a-rgb), .35); background: rgba(var(--cs-a-rgb), .05); border-radius: 16px; padding: 24px 28px; display: flex; gap: 16px; align-items: flex-start; }
+.cs-callout .cs-callout-ic { font-size: 22px; line-height: 1.2; flex: 0 0 auto; }
+.cs-callout p { margin: 0; color: rgba(18, 24, 32, .72); font-size: 14.5px; line-height: 1.6; }
+.cs-callout strong { color: var(--cs-ink); }
+
+/* Device frames — make screenshots look intentional, not letterboxed */
+.cs-browser { border: 1px solid rgba(18, 24, 32, .12); border-radius: 14px; overflow: hidden; box-shadow: 0 18px 44px rgba(18, 24, 32, .1); background: #fff; }
+.cs-browser-bar { display: flex; align-items: center; gap: 7px; padding: 12px 15px; background: #f4f5f7; border-bottom: 1px solid rgba(18, 24, 32, .08); }
+.cs-browser-bar i { width: 11px; height: 11px; border-radius: 50%; background: #d5d8de; display: block; }
+.cs-browser-bar .cs-browser-url { margin-left: 10px; flex: 1; height: 20px; border-radius: 6px; background: #e7e9ee; }
+.cs-browser img { width: 100%; display: block; }
+
+.cs-phone { max-width: 290px; margin: 0 auto; background: #12161c; border-radius: 40px; padding: 10px; box-shadow: 0 22px 55px rgba(18, 24, 32, .22); position: relative; }
+.cs-phone::before { content: ""; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 120px; height: 20px; background: #12161c; border-radius: 0 0 16px 16px; z-index: 2; }
+.cs-phone img { width: 100%; display: block; border-radius: 30px; }
+
+.cs-plainshot { width: 100%; display: block; border-radius: 14px; border: 1px solid rgba(18, 24, 32, .1); }
+
+/* Numbered walkthrough step index */
+.cs-step-index { font-size: 13px; font-weight: 800; letter-spacing: .1em; color: var(--cs-a); display: inline-block; margin-bottom: 14px; }
+
+/* Tech-stack chips */
+.cs-chips { display: flex; flex-wrap: wrap; gap: 12px; }
+.cs-chip { border: 1px solid rgba(18, 24, 32, .12); border-radius: 40px; padding: 10px 18px; font-size: 14px; font-weight: 600; color: var(--cs-ink); background: #fff; display: inline-flex; align-items: center; gap: 8px; }
+.cs-chip .cs-chip-ic { color: var(--cs-a); }
+
+/* Roles / labeled grid */
+.cs-lead { font-size: 19px; line-height: 1.6; color: rgba(18, 24, 32, .72); max-width: 760px; }
